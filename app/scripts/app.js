@@ -15,7 +15,9 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap',
+    'ngFileUpload'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -23,9 +25,9 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/embed', {
+        templateUrl: 'views/embed.html',
+        controller: 'EmbedCtrl'
       })
       .otherwise({
         redirectTo: '/'

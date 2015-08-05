@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name comparativescalesApp.controller:AboutCtrl
+ * @name comparativescalesApp.controller:EmbedCtrl
  * @description
- * # AboutCtrl
+ * # EmbedCtrl
  * Controller of the comparativescalesApp
  */
 angular.module('comparativescalesApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('EmbedCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
