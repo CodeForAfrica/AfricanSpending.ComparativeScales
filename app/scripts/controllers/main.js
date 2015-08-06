@@ -8,12 +8,13 @@
  * Controller of the comparativescalesApp
  */
 angular.module('comparativescalesApp')
-  .controller('MainCtrl', function ($scope, $timeout, $http, Upload) {
+  .controller('MainCtrl', function ($scope, $timeout, $http, $location, Upload) {
     $scope.viewModel = 'input';
     $scope.bignumber;
     $scope.description;
     $scope.objDescription;
     $scope.objvalue;
+    $scope.source;
     $scope.units = ['USD', 'ZAR'];
     $scope.selUnit = $scope.units[0];
     $scope.showComparison = false;
@@ -21,12 +22,16 @@ angular.module('comparativescalesApp')
     $scope.showImageButton = true;
     $scope.icon;
     $scope.boxwidth = 600;
-    $scope.boxheight = 600;
-    $scope.gistId = '50a3b5cee2d4a7fe12f4';
+    $scope.boxheight = 300;
+    $scope.iframeheight = 600;
+    //$scope.gistId = 'b529d1b9692e12f20004';
+    $scope.gistId;
+    $scope.gistVersion;
     $scope.embedCode;
-    $scope.baseUrl = 'http://localhost:9000/#/embed?';
-
-
+    $scope.baseUrl = $location.absUrl() + 'embed?';
+    $scope.outButtonDisabled = true;
+    $scope.credits;
+    $scope.savinggist = false;
 
     $scope.addComparison = function(){
       $scope.showComparison = true;
@@ -42,17 +47,25 @@ angular.module('comparativescalesApp')
       }
     });
 
-    $scope.$watch("[boxwidth, boxheight, gistId]", function (newValue, oldValue) {
-      if(newValue[0] && newValue[1] && newValue[2]){
+    $scope.$watch("[boxwidth, boxheight, gistId, iframeheight, gistVersion]", function (newValue, oldValue) {
+      if(newValue[0] && newValue[1] && newValue[2] && newValue[3] && newValue[4]){
         $scope.embedCode = '<iframe src="' +$scope.baseUrl
         + 'width=' + newValue[0]
         + '&boxheight='
         + newValue[1]
-         + '&id='+ newValue[2] + '" width="' + newValue[0] +'" frameborder="0"></iframe>'
+         + '&id='+ newValue[2] + '&version=' + newValue[4] +'" width="' + newValue[0] +'" height="' + newValue[3] +'" frameborder="0"></iframe>'
       }
     });
 
     $scope.svgIcon;
+
+    $scope.$watch("[objDescription, objvalue, svgIcon, source]", function (newValue, oldValue) {
+      if(newValue[0] && newValue[1] && newValue[2] && newValue[3]){
+          $scope.outButtonDisabled = false;
+        }else{
+          $scope.outButtonDisabled = true;
+        }
+    });
 
     $scope.getNumber = function(num) {
       if(num){
@@ -87,7 +100,8 @@ angular.module('comparativescalesApp')
           description: $scope.description,
           selUnit: $scope.selUnit,
           objDescription: $scope.objDescription,
-          source: $scope.soure,
+          source: $scope.source,
+          credits: $scope.credits,
           itemsNumber: Math.ceil($scope.bignumber/$scope.objvalue)
         }
             var data = 	{
@@ -104,22 +118,18 @@ angular.module('comparativescalesApp')
       	};
 
       data = JSON.stringify( data );
-      console.log(data)
+      $scope.savinggist = true;
       $http.post('https://api.github.com/gists', data).
         then(function(response) {
           console.log(response)
           $scope.gistId = response.data.id
+          $scope.gistVersion = response.data.history[0].version;
+          $scope.savinggist = false;
         }, function(error) {
             console.log(error)
+            $scope.savinggist = false;
         });
 
-      // $.ajax({
-      //     url: 'https://api.github.com/gists',
-      //     success:function(d){ console.log(d) },
-      //     type: 'POST',
-      //     data: data,
-      //     dataType: 'json'
-      // })
     }
 
 

@@ -4,7 +4,7 @@
       <div class="col-md-offset-4 col-md-4">
         <div class="btn-group">
           <label class="btn btn-primary" ng-model="viewModel" btn-radio="'input'">Input</label>
-          <label class="btn btn-primary" ng-model="viewModel" btn-radio="'output'">Output</label>
+          <label class="btn btn-primary" ng-class="{'disabled': outButtonDisabled}" ng-model="viewModel" btn-radio="'output'">Output</label>
         </div>
       </div>
     </div>
@@ -63,9 +63,9 @@
             </p>
           </div>
           <div class="col-md-2 panelFade" ng-show="showImage">
-            <p class="pull-right">
+            <!-- <p class="pull-right">
               edit
-            </p>
+            </p> -->
           </div>
         </div>
         <div class="row">
@@ -100,6 +100,12 @@
           <div class="col-md-12">
             <label>source</label>
             <input type="text" placeholder="enter a link source" class="form-control" name="source" ng-model="source" ng-minlength="3">
+          </div>
+        </div>
+        <div class="row panelFade" ng-show="showImage">
+          <div class="col-md-12">
+            <label>credits</label>
+            <input type="text" placeholder="enter icon credits" class="form-control" name="credits" ng-model="credits" ng-minlength="3">
           </div>
         </div>
         </div>
@@ -141,18 +147,24 @@
         <input type="number" placeholder="box width" class="form-control" name="boxwidth" ng-model="boxwidth" min="1" required>
       </div>
       <div class="form-group">
-        <label>max height</label>
+        <label>max height iframe</label>
+        <input type="number" placeholder="max height" class="form-control" name="iframeheight" ng-model="iframeheight" min="1" required>
+      </div>
+      <div class="form-group">
+        <label>max height icon box</label>
         <input type="number" placeholder="max box height" class="form-control" name="boxheight" ng-model="boxheight" min="1" required>
       </div>
       <button type="button" class="btn btn-primary" ng-click="publishGist()">
         embed
       </button>
-      <div>
+      <p ng-show="savinggist" class="panelFade"> saving to Gist...</p>
+      <div ng-show="gistId" class="panelFade">
         <label>copy embed code </label>
-        <textarea class="form-control" rows="8" ng-model="embedCode"></textarea>
+        <textarea readonly class="form-control" rows="8" ng-model="embedCode"></textarea>
       </div>
     </div>
     <div class="col-md-8">
+      <div style="overflow-y:scroll;" ng-style="{'height': iframeheight+'px', 'width':boxwidth+'px'}">
       <div>
         <h2>{{bignumber}} {{selUnit}}</h2>
         <p>{{description}}</p>
@@ -165,8 +177,10 @@
         <div class="finalIcon" iconstyle="light" ng-repeat="i in getNumber(bignumber/objvalue) track by $index" svg-icon></div>
       </div>
       <div>
-        <p>SOURCE: {{source}}</p>
+        <p>SOURCE: <a ng-href="{{source}}" target="_blank">{{source}}</a></p>
+        <p>CREDITS: {{credits}}</p>
       </div>
+    </div>
     </div>
   </div>
 </div>
