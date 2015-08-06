@@ -24,7 +24,6 @@ angular.module('comparativescalesApp')
     $scope.boxwidth = 600;
     $scope.boxheight = 300;
     $scope.iframeheight = 600;
-    //$scope.gistId = 'b529d1b9692e12f20004';
     $scope.gistId;
     $scope.gistVersion;
     $scope.embedCode;
@@ -77,8 +76,6 @@ angular.module('comparativescalesApp')
         if (files && files.length) {
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
-                //console.log(file)
-
                 var reader = new FileReader();
 
 					reader.onload = function(e) {
@@ -121,12 +118,10 @@ angular.module('comparativescalesApp')
       $scope.savinggist = true;
       $http.post('https://api.github.com/gists', data).
         then(function(response) {
-          console.log(response)
           $scope.gistId = response.data.id
           $scope.gistVersion = response.data.history[0].version;
           $scope.savinggist = false;
         }, function(error) {
-            console.log(error)
             $scope.savinggist = false;
         });
 
