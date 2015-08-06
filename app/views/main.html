@@ -1,4 +1,16 @@
-<div class="container steps">
+<div class="viewMenu">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+        <div class="btn-group">
+          <label class="btn btn-primary" ng-model="viewModel" btn-radio="'input'">Input</label>
+          <label class="btn btn-primary" ng-model="viewModel" btn-radio="'output'">Output</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container steps" ng-show="viewModel == 'input'">
   <div class="row">
     <div class="col-md-4">
       <h4>insert the number</h4>
@@ -116,6 +128,44 @@
             </button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container steps" ng-show="viewModel == 'output'">
+  <div class="row">
+    <div class="col-md-4">
+      <h4>option</h4>
+      <div class="form-group">
+        <label>width</label>
+        <input type="number" placeholder="box width" class="form-control" name="boxwidth" ng-model="boxwidth" min="1" required>
+      </div>
+      <div class="form-group">
+        <label>max height</label>
+        <input type="number" placeholder="max box height" class="form-control" name="boxheight" ng-model="boxheight" min="1" required>
+      </div>
+      <button type="button" class="btn btn-primary" ng-click="publishGist()">
+        embed
+      </button>
+      <div>
+        <label>copy embed code </label>
+        <textarea class="form-control" rows="8" ng-model="embedCode"></textarea>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div>
+        <h2>{{bignumber}} {{selUnit}}</h2>
+        <p>{{description}}</p>
+      </div>
+      <div>
+        <h2>{{bignumber/objvalue | number:1}}</h2>
+        <p>{{objDescription}}</p>
+      </div>
+      <div style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
+        <div class="finalIcon" iconstyle="light" ng-repeat="i in getNumber(bignumber/objvalue) track by $index" svg-icon></div>
+      </div>
+      <div>
+        <p>SOURCE: {{source}}</p>
       </div>
     </div>
   </div>

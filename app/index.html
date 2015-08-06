@@ -19,18 +19,7 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div ng-controller="ViewmenuCtrl" class="viewMenu">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-offset-4 col-md-4">
-            <div class="btn-group">
-              <label class="btn btn-primary" ng-model="viewModel" btn-radio="'input'">Input</label>
-              <label class="btn btn-primary" ng-model="viewModel" btn-radio="'output'">Output</label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <div ng-view=""></div>
 
 
@@ -68,6 +57,7 @@
         <script src="scripts/controllers/embed.js"></script>
         <script src="scripts/controllers/viewmenu.js"></script>
         <script src="scripts/directives/svgicon.js"></script>
+        <script src="scripts/services/apiservice.js"></script>
         <!-- endbuild -->
 </body>
 </html>

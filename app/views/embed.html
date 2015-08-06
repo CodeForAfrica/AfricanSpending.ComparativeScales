@@ -1,1 +1,20 @@
-<p>This is the about view.</p>
+<div class="container steps" ng-style="{'width': params.width+'px'}">
+  <div class="row">
+    <div class="col-md-12">
+      <div>
+        <h2>{{config.bignumber}} {{config.selUnit}}</h2>
+        <p>{{config.description}}</p>
+      </div>
+      <div>
+        <h2>{{config.itemsNumber}}</h2>
+        <p>{{config.objDescription}}</p>
+      </div>
+      <div style="overflow-y:scroll;" ng-style="{'height': params.boxheight+'px'}">
+        <div class="finalIcon" iconstyle="light" ng-repeat="i in getNumber(100) track by $index" svg-icon></div>
+      </div>
+      <div>
+        <p>SOURCE: {{source}}</p>
+      </div>
+    </div>
+  </div>
+</div>

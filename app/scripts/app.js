@@ -27,7 +27,14 @@ angular
       })
       .when('/embed', {
         templateUrl: 'views/embed.html',
-        controller: 'EmbedCtrl'
+        controller: 'EmbedCtrl',
+        resolve:{
+          gist : function (apiservice, $location) {
+            var params = $location.search();
+            console.log(params.id)
+            return apiservice.getGist(params.id)
+          }
+        }
       })
       .otherwise({
         redirectTo: '/'

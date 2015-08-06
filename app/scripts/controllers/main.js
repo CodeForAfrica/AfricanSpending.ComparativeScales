@@ -8,15 +8,24 @@
  * Controller of the comparativescalesApp
  */
 angular.module('comparativescalesApp')
-  .controller('MainCtrl', function ($scope, $timeout, Upload) {
+  .controller('MainCtrl', function ($scope, $timeout, $http, Upload) {
+    $scope.viewModel = 'input';
     $scope.bignumber;
     $scope.description;
+    $scope.objDescription;
+    $scope.objvalue;
     $scope.units = ['USD', 'ZAR'];
     $scope.selUnit = $scope.units[0];
     $scope.showComparison = false;
     $scope.showImage = false;
     $scope.showImageButton = true;
     $scope.icon;
+    $scope.boxwidth = 600;
+    $scope.boxheight = 600;
+    $scope.gistId = '50a3b5cee2d4a7fe12f4';
+    $scope.embedCode;
+    $scope.baseUrl = 'http://localhost:9000/#/embed?';
+
 
 
     $scope.addComparison = function(){
@@ -33,7 +42,23 @@ angular.module('comparativescalesApp')
       }
     });
 
-    $scope.svgIcon
+    $scope.$watch("[boxwidth, boxheight, gistId]", function (newValue, oldValue) {
+      if(newValue[0] && newValue[1] && newValue[2]){
+        $scope.embedCode = '<iframe src="' +$scope.baseUrl
+        + 'width=' + newValue[0]
+        + '&boxheight='
+        + newValue[1]
+         + '&id='+ newValue[2] + '" width="' + newValue[0] +'" frameborder="0"></iframe>'
+      }
+    });
+
+    $scope.svgIcon;
+
+    $scope.getNumber = function(num) {
+      if(num){
+        return new Array(Math.round(num));
+      }
+    }
 
     $scope.upload = function (files) {
         if (files && files.length) {
@@ -45,7 +70,6 @@ angular.module('comparativescalesApp')
 
 					reader.onload = function(e) {
 						var text = reader.result;
-            console.log("yo", text)
             $timeout(function(){
               $scope.svgIcon = text;
             })
@@ -53,28 +77,50 @@ angular.module('comparativescalesApp')
 			    };
 
 					reader.readAsText(file);
-
-                // Upload.dataUrl(file, function(base64){
-                //   $scope.svgIcon = base64
-                // }, true);
-
-
-                // Upload.upload({
-                //     url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
-                //     fields: {
-                //         'username': $scope.username
-                //     },
-                //     file: file
-                // }).progress(function (evt) {
-                //     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                //     $scope.log = 'progress: ' + progressPercentage + '% ' +
-                //                 evt.config.file.name + '\n' + $scope.log;
-                // }).success(function (data, status, headers, config) {
-                //     $timeout(function() {
-                //         $scope.log = 'file: ' + config.file.name + ', Response: ' + JSON.stringify(data) + '\n' + $scope.log;
-                //     });
-                // });
             }
         }
     };
+
+    $scope.publishGist = function(){
+        var config = {
+          bignumber: $scope.bignumber,
+          description: $scope.description,
+          selUnit: $scope.selUnit,
+          objDescription: $scope.objDescription,
+          source: $scope.soure,
+          itemsNumber: Math.ceil($scope.bignumber/$scope.objvalue)
+        }
+            var data = 	{
+      	  "description": $scope.description,
+      	  "public": true,
+      	  "files": {
+      	    "config.json": {
+      	      "content": JSON.stringify(config)
+      	    },
+            "icon.svg": {
+              "content": $scope.svgIcon
+            }
+      	  }
+      	};
+
+      data = JSON.stringify( data );
+      console.log(data)
+      $http.post('https://api.github.com/gists', data).
+        then(function(response) {
+          console.log(response)
+          $scope.gistId = response.data.id
+        }, function(error) {
+            console.log(error)
+        });
+
+      // $.ajax({
+      //     url: 'https://api.github.com/gists',
+      //     success:function(d){ console.log(d) },
+      //     type: 'POST',
+      //     data: data,
+      //     dataType: 'json'
+      // })
+    }
+
+
   });

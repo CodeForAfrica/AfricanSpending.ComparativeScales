@@ -12,6 +12,20 @@ angular.module('comparativescalesApp')
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
         var container = d3.select(element[0]);
+        if(scope.svgIcon){
+          container.empty()
+          container.html(scope.svgIcon)
+          container.select('svg')
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("fill", function(){
+              if(attrs.iconstyle){
+                return "black";
+              }else{
+                return "white";
+              }
+            })
+        }
         scope.$watch('svgIcon', function (newValue, oldValue) {
           if(newValue != oldValue && newValue){
             scope.showImageButton = false;
@@ -20,7 +34,13 @@ angular.module('comparativescalesApp')
             container.select('svg')
               .attr("width", "100%")
               .attr("height", "100%")
-              .attr("fill", "white")
+              .attr("fill", function(){
+                if(attrs.iconstyle){
+                  return "black";
+                }else{
+                  return "white";
+                }
+              })
           }
         });
       }
