@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-md-offset-4 col-md-4">
         <div class="btn-group">
-          <label class="btn btn-primary" ng-model="viewModel" btn-radio="'input'">Input</label>
-          <label class="btn btn-primary" ng-class="{'disabled': outButtonDisabled}" ng-model="viewModel" btn-radio="'output'">Output</label>
+          <button class="btn btn-success" ng-model="viewModel" btn-radio="'input'">Input</button>
+          <button class="btn btn-success" ng-class="{'disabled': outButtonDisabled}" ng-model="viewModel" btn-radio="'output'">Output</button>
         </div>
       </div>
     </div>
@@ -12,12 +12,12 @@
 </div>
 <div class="container steps" ng-show="viewModel == 'input'">
   <div class="row">
-    <div class="col-md-4">
-      <h4>insert the number</h4>
+    <div class="col-md-3">
+      <h4><span class="step">1</span> insert the number</h4>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <div class="form-group">
             <label>big number</label>
             <input type="number" placeholder="the big number" class="form-control" name="input" ng-model="bignumber" min="1" required>
@@ -36,19 +36,20 @@
         <div class="col-md-12">
             <div class="form-group">
               <label>description</label>
-              <input type="text" placeholder="enter a description" class="form-control" name="description" ng-model="description" ng-minlength="3">
+              <input type="text" placeholder="enter a description" class="form-control description" name="description" ng-model="description" ng-minlength="3">
             </div>
         </div>
       </div>
     </div>
   </div>
+  <hr>
   <div class="row">
-    <div class="col-md-4">
-      <h4>select a comparison</h4>
+    <div class="col-md-3">
+      <h4><span class="step">2</span> select a comparison</h4>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
       <div id="addComparison">
-        <button type="button" class="btn btn-primary" ng-click="addComparison()">
+        <button type="button" class="btn btn-success" ng-click="addComparison()">
           add comparison
         </button>
       </div>
@@ -97,13 +98,13 @@
           </div>
         </div>
         <div class="row panelFade" ng-show="showImage">
-          <div class="col-md-12">
+          <div class="col-md-12 credits">
             <label>source</label>
             <input type="text" placeholder="enter a link source" class="form-control" name="source" ng-model="source" ng-minlength="3">
           </div>
         </div>
         <div class="row panelFade" ng-show="showImage">
-          <div class="col-md-12">
+          <div class="col-md-12 credits">
             <label>credits</label>
             <input type="text" placeholder="enter icon credits" class="form-control" name="credits" ng-model="credits" ng-minlength="3">
           </div>
@@ -122,14 +123,13 @@
                class="iconDropArea"
                ngf-drop-available="dropAvailable">
                 <div class="svgIconContainer" svg-icon></div>
-                <span ng-show="showImageButton" style="position:absolute;top:50%;color:white;">Add icon (.svg)</span>
-
+                <button type="button" class="btn btn-success" span ng-show="showImageButton" style="position:absolute;top:50%;">Add icon (.svg)</button>
               </div>
           </div>
         </div>
         <div class="row" ng-hide="showImage">
           <div class="col-md-12 continue">
-            <button type="button" class="btn btn-primary" ng-click="addImage()">
+            <button type="button" class="btn btn-success" ng-click="addImage()">
               continue
             </button>
           </div>
@@ -154,7 +154,7 @@
         <label>max height icon box</label>
         <input type="number" placeholder="max box height" class="form-control" name="boxheight" ng-model="boxheight" min="1" required>
       </div>
-      <button type="button" class="btn btn-primary" ng-click="publishGist()">
+      <button type="button" class="btn btn-success" ng-click="publishGist()">
         embed
       </button>
       <p ng-show="savinggist" class="panelFade"> saving to Gist...</p>
@@ -164,8 +164,8 @@
       </div>
     </div>
     <div class="col-md-8">
-      <div style="overflow-y:scroll;" ng-style="{'height': iframeheight+'px', 'width':boxwidth+'px'}">
-      <div>
+      <div style="overflow-y:scroll;" ng-style="{'height': iframeheight+'px', 'width':boxwidth+'px'}" class="output">
+      <div class="big-number-output">
         <h2>{{bignumber}} {{selUnit}}</h2>
         <p>{{description}}</p>
       </div>
@@ -177,8 +177,8 @@
         <div class="finalIcon" iconstyle="light" ng-repeat="i in getNumber(bignumber/objvalue) track by $index" svg-icon></div>
       </div>
       <div>
-        <p>SOURCE: <a ng-href="{{source}}" target="_blank">{{source}}</a></p>
-        <p>CREDITS: {{credits}}</p>
+        <h6>SOURCE: <a ng-href="{{source}}" target="_blank">{{source}}</a></h6>
+        <h6>CREDITS: {{credits}}</h6>
       </div>
     </div>
     </div>
