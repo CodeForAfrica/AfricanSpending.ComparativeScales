@@ -39,6 +39,19 @@ angular.module('comparativescalesApp')
         });
 
         return deferred.promise;
+      },
+      getCurrenciesList: function () {
+        var deferred = $q.defer();
+        $http({
+          method: 'GET',
+          url : 'https://openexchangerates.org/api/currencies.json'
+        }).success(function(data){
+          deferred.resolve(data);
+        }).error(function(){
+          deferred.reject("An error occured while fetching currencies");
+        });
+
+        return deferred.promise;
       }
     };
   });

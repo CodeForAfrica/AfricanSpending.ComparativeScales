@@ -10,6 +10,7 @@
     </div>
   </div>
 </div>
+<!-- input mode -->
 <div class="container steps" ng-show="viewModel == 'input'">
   <div class="row">
     <div class="col-md-3">
@@ -73,7 +74,7 @@
           <div class="col-md-4">
             <div class="form-group">
               <label>item value</label>
-              <input type="number" placeholder="add the value" class="form-control" name="input" ng-model="objvalue" min="1" max="{{bignumber}}" required>
+              <input type="number" placeholder="add the value" class="form-control" name="input" ng-model="objvalue" min="1" max="{{bignumber}}" ng-model-options="{ debounce: 1000 }" required>
             </div>
           </div>
           <div class="col-md-2">
@@ -138,6 +139,8 @@
     </div>
   </div>
 </div>
+
+<!-- output mode -->
 <div class="container steps" ng-show="viewModel == 'output'">
   <div class="row">
     <div class="col-md-4">

@@ -23,7 +23,12 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        resolve:{
+          currencies: function(apiservice){
+            return apiservice.getCurrenciesList();
+          }
+        }
       })
       .when('/embed', {
         templateUrl: 'views/embed.html',

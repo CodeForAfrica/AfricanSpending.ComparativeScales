@@ -8,15 +8,16 @@
  * Controller of the comparativescalesApp
  */
 angular.module('comparativescalesApp')
-  .controller('MainCtrl', function ($scope, $timeout, $http, $location, Upload) {
+  .controller('MainCtrl', function ($scope, $timeout, $http, $location, Upload, currencies) {
+    $scope.currencies = currencies;
     $scope.viewModel = 'input';
     $scope.bignumber;
     $scope.description;
     $scope.objDescription;
     $scope.objvalue;
     $scope.source;
-    $scope.units = ['USD', 'ZAR'];
-    $scope.selUnit = $scope.units[0];
+    $scope.units = d3.keys($scope.currencies);
+    $scope.selUnit = 'USD';
     $scope.showComparison = false;
     $scope.showImage = false;
     $scope.showImageButton = true;
