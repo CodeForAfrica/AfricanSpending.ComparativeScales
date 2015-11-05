@@ -11,38 +11,58 @@
   </div>
 </div>
 <!-- input mode -->
+
 <div class="container steps" ng-show="viewModel == 'input'">
-  <div class="row">
-    <div class="col-md-3">
-      <h4><span class="step">1</span> insert the number</h4>
-    </div>
-    <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label>big number</label>
-            <input type="number" placeholder="the big number" class="form-control" name="input" ng-model="bignumber" min="1" required>
+    <div class="row">
+      <form name="userForm" novalidate>
+      <div class="col-md-3">
+        <h4><span class="step">1</span> insert the number</h4>
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>big number</label>
+              <input
+                type="number"
+                placeholder="the big number"
+                class="form-control"
+                name="input"
+                ng-model="bignumber"
+                min="1"
+                required
+              >
+            </div>
+          </div>
+          <div class="col-md-3">
+              <div class="form-group">
+                <label>unit</label>
+                <select class="form-control" ng-model="selUnit">
+                  <option ng-repeat="unit in units">{{unit}}</option>
+                </select>
+              </div>
           </div>
         </div>
-        <div class="col-md-3">
-            <div class="form-group">
-              <label>unit</label>
-              <select class="form-control" ng-model="selUnit">
-                <option ng-repeat="unit in units">{{unit}}</option>
-              </select>
-            </div>
+        <div class="row">
+          <div class="col-md-12">
+              <div class="form-group">
+                <label>description</label>
+                <input
+                  type="text"
+                  placeholder="enter a description"
+                  class="form-control description"
+                  name="description"
+                  ng-model="description"
+                  ng-minlength="3"
+                  required
+                >
+              </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-              <label>description</label>
-              <input type="text" placeholder="enter a description" class="form-control description" name="description" ng-model="description" ng-minlength="3">
-            </div>
-        </div>
-      </div>
+    </form>
     </div>
-  </div>
+
   <hr>
   <div class="row">
     <div class="col-md-3">
@@ -50,31 +70,49 @@
     </div>
     <div class="col-md-9">
       <div id="addComparison">
-        <button type="button" class="btn btn-success" ng-click="addComparison()">
+        <button type="button" class="btn btn-success" ng-disabled="userForm.$invalid || editMode" ng-click="addComparison()">
           add comparison
         </button>
       </div>
-      <div ng-show="showComparison" id="newComparison" class="panelFade">
+      <div ng-show="comparisons.length" class="newComparison panelFade" ng-repeat="comparison in comparisons | orderBy: '-id' track by comparison.id">
+        <ng-form name="comparisonFieldForm">
         <div class="row rowComp">
           <div class="col-md-8">
         <div class="infoComp">
         <div class="row">
-          <div class="col-md-10">
+          <div class="col-md-12">
             <p>
               <span class="label label-default">added by you</span>
+              <span class="pull-right">
+              <button type="button" class="btn btn-success btn-xs" ng-disabled="comparison.isActive" ng-click="comparison.isActive=!comparison.isActive">
+                edit
+              </button>
+              <button type="button" class="btn btn-success btn-xs" ng-disabled="comparisonFieldForm.$invalid || !comparison.icon || !comparison.isActive" ng-click="saveComparison(comparison.id)">
+                save
+              </button>
+              <button type="button" class="btn btn-success btn-xs" ng-click="removeComparison(comparison.id)">
+                remove
+              </button>
+            </span>
             </p>
-          </div>
-          <div class="col-md-2 panelFade" ng-show="showImage">
-            <!-- <p class="pull-right">
-              edit
-            </p> -->
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>item value</label>
-              <input type="number" placeholder="add the value" class="form-control" name="input" ng-model="objvalue" min="1" max="{{bignumber}}" ng-model-options="{ debounce: 1000 }" required>
+              <input
+                type="number"
+                placeholder="add the value"
+                class="form-control"
+                name="inputComparison"
+                ng-model="comparison.objvalue"
+                min="1"
+                max="{{bignumber}}"
+                ng-model-options="{ debounce: 1000 }"
+                ng-readonly="!comparison.isActive"
+                required
+              >
             </div>
           </div>
           <div class="col-md-2">
@@ -84,62 +122,85 @@
             </div>
           </div>
         </div>
-        <div class="row panelFade" ng-show="showImage">
+        <div class="row panelFade">
           <div class="col-md-4">
             <div class="form-group">
               <label>number of items</label>
-              <p>{{bignumber/objvalue | number:1}}</p>
+              <p>{{bignumber/comparison.objvalue | number:1}}</p>
             </div>
           </div>
           <div class="col-md-8">
             <div class="form-group">
               <label>description</label>
-              <input type="text" placeholder="enter a description" class="form-control" name="objDescription" ng-model="objDescription" ng-minlength="3">
+              <input
+                type="text"
+                placeholder="enter a description"
+                class="form-control"
+                name="objDescription"
+                ng-model="comparison.objDescription"
+                ng-minlength="3"
+                ng-readonly="!comparison.isActive"
+                required
+              >
             </div>
           </div>
         </div>
-        <div class="row panelFade" ng-show="showImage">
+        <div class="row panelFade" >
           <div class="col-md-12 credits">
             <label>source</label>
-            <input type="text" placeholder="enter a link source" class="form-control" name="source" ng-model="source" ng-minlength="3">
+            <input
+              type="text"
+              placeholder="enter a link source"
+              class="form-control"
+              name="source"
+              ng-model="comparison.source"
+              ng-minlength="3"
+              ng-readonly="!comparison.isActive"
+              required
+            >
           </div>
         </div>
-        <div class="row panelFade" ng-show="showImage">
+        <div class="row panelFade">
           <div class="col-md-12 credits">
             <label>credits</label>
-            <input type="text" placeholder="enter icon credits" class="form-control" name="credits" ng-model="credits" ng-minlength="3">
+            <input
+              type="text"
+              placeholder="enter icon credits"
+              class="form-control"
+              name="credits"
+              ng-model="comparison.credits"
+              ng-minlength="3"
+              ng-readonly="!comparison.isActive"
+              required
+            >
           </div>
         </div>
         </div>
         </div>
-          <div class="col-md-4 panelFade colComp" ng-show="showImage">
-              <div ngf-select=""
-               ngf-drop="dropAvailable"
-               ng-model="icon"
-               ng-model-rejected="rejFiles"
-               ngf-multiple="false"
-               ngf-accept="'.svg,.jpg'"
-               ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}"
-               ngf-allow-dir="allowDir"
-               class="iconDropArea"
-               ngf-drop-available="dropAvailable">
-                <div class="svgIconContainer" svg-icon></div>
-                <button type="button" class="btn btn-success" span ng-show="showImageButton" style="position:absolute;top:50%;">Add icon (.svg)</button>
+          <div class="col-md-4 panelFade">
+              <div
+                ngf-select="upload($files,comparison.id)"
+                ngf-drop="dropAvailable"
+                ng-model-rejected="rejFiles"
+                ngf-multiple="false"
+                ngf-accept="'.svg'"
+                ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}"
+                ngf-allow-dir="allowDir"
+                ngf-drop-available="dropAvailable"
+                ng-disabled="!comparison.isActive"
+                name="drop"
+                class="dropArea"
+               >
+                <div class="svgIconContainer" comparison="comparison" svg-icon></div>
+                <button type="button" class="btn btn-success" ng-show="!comparison.icon">Add icon (.svg)</button>
               </div>
           </div>
         </div>
-        <div class="row" ng-hide="showImage">
-          <div class="col-md-12 continue">
-            <button type="button" class="btn btn-success" ng-click="addImage()">
-              continue
-            </button>
-          </div>
-        </div>
+      </ng-form>
       </div>
     </div>
   </div>
 </div>
-
 <!-- output mode -->
 <div class="container steps" ng-show="viewModel == 'output'">
   <div class="row">

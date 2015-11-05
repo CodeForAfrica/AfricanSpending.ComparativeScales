@@ -10,37 +10,49 @@ angular.module('comparativescalesApp')
   .directive('svgIcon', function () {
     return {
       restrict: 'A',
+      scope: {
+        comparison: '='
+      },
       link: function postLink(scope, element, attrs) {
         var container = d3.select(element[0]);
-        if(scope.svgIcon){
+        var index = attrs.index;
+        var svg;
+        if(scope.comparison.icon){
           container.empty()
-          container.html(scope.svgIcon)
-          container.select('svg')
+          container.html(scope.comparison.icon)
+          svg = container.select('svg')
+          svg
             .attr("width", "100%")
-            .attr("height", "100%")
-            .attr("fill", function(){
-              if(attrs.iconstyle){
-                return "black";
-              }else{
-                return "white";
-              }
+
+          var credits = '';
+          var texts = svg.selectAll('text')
+            .each(function(d){
+              credits = credits + " " + d3.select(this).text();
             })
+
+          scope.comparison.credits = credits?credits:scope.comparison.credits
+
+          texts.remove()
+
         }
-        scope.$watch('svgIcon', function (newValue, oldValue) {
+        scope.$watch(function(scope){return scope.comparison.icon}, function (newValue, oldValue) {
           if(newValue != oldValue && newValue){
             scope.showImageButton = false;
             container.empty()
             container.html(newValue)
-            container.select('svg')
-              .attr("width", "100%")
-              .attr("height", "100%")
-              .attr("fill", function(){
-                if(attrs.iconstyle){
-                  return "black";
-                }else{
-                  return "white";
-                }
+            svg = container.select('svg')
+            svg.attr("width", "100%")
+
+            var credits = '';
+
+            var texts = svg.selectAll('text')
+              .each(function(d){
+                credits = credits + " " + d3.select(this).text();
               })
+
+            scope.comparison.credits = credits?credits:scope.comparison.credits
+
+            texts.remove()
           }
         });
       }

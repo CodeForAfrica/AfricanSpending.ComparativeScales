@@ -9,19 +9,28 @@
  */
 angular.module('comparativescalesApp')
   .controller('MainCtrl', function ($scope, $timeout, $http, $location, Upload, currencies) {
-    $scope.currencies = currencies;
+
+    //edit mode
     $scope.viewModel = 'input';
+
+    //source comparison values
+    $scope.currencies = currencies;
     $scope.bignumber;
     $scope.description;
+    $scope.units = d3.keys($scope.currencies);
+    $scope.selUnit = 'USD';
+
+    //output comparison values
+
+    $scope.comparisons = [];
+
     $scope.objDescription;
     $scope.objvalue;
     $scope.source;
-    $scope.units = d3.keys($scope.currencies);
-    $scope.selUnit = 'USD';
-    $scope.showComparison = false;
-    $scope.showImage = false;
     $scope.showImageButton = true;
     $scope.icon;
+
+    //output mode values
     $scope.boxwidth = 600;
     $scope.boxheight = 300;
     $scope.iframeheight = 600;
@@ -30,15 +39,45 @@ angular.module('comparativescalesApp')
     $scope.embedCode;
     $scope.baseUrl = $location.absUrl() + 'embed?';
     $scope.outButtonDisabled = true;
+    $scope.addButtonDisabled =true;
     $scope.credits;
     $scope.savinggist = false;
 
     $scope.addComparison = function(){
-      $scope.showComparison = true;
+      $scope.editMode = true;
+      var id = $scope.comparisons.length?$scope.comparisons.length:0;
+      var elm = {
+        objDescription: '',
+        source: '',
+        credits: '',
+        itemsNumber: '',
+        id : id,
+        icon: '',
+        isActive:true
+      }
+      $scope.comparisons.push(elm)
+
     }
 
-    $scope.addImage = function(){
-      $scope.showImage = true;
+    $scope.saveComparison = function(id){
+        var comparison = $scope.comparisons.filter(function(d){
+          return d.id == id
+        })
+
+        if(comparison.length){
+          comparison[0].isActive = false;
+        }else{
+          console.warn("No comparison found!")
+        }
+        $scope.editMode = false;
+    }
+
+    $scope.removeComparison = function(id){
+
+      var ids = $scope.comparisons.map(function(d){return d.id});
+      $scope.comparisons.splice(ids.indexOf(id),1)
+      $scope.editMode = false;
+
     }
 
     $scope.$watch('icon', function (newValue, oldValue) {
@@ -46,6 +85,7 @@ angular.module('comparativescalesApp')
         $scope.upload([$scope.icon]);
       }
     });
+
 
     $scope.$watch("[boxwidth, boxheight, gistId, iframeheight, gistVersion]", function (newValue, oldValue) {
       if(newValue[0] && newValue[1] && newValue[2] && newValue[3] && newValue[4]){
@@ -73,16 +113,24 @@ angular.module('comparativescalesApp')
       }
     }
 
-    $scope.upload = function (files) {
+    $scope.upload = function (files, index) {
         if (files && files.length) {
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
                 var reader = new FileReader();
-
 					reader.onload = function(e) {
 						var text = reader.result;
             $timeout(function(){
-              $scope.svgIcon = text;
+
+              var comparison = $scope.comparisons.filter(function(d){
+                return d.id == index;
+              })
+
+              if(comparison.length){
+                comparison[0].icon = text;
+              }else{
+                console.warn("No comparison found!")
+              }
             })
 
 			    };
