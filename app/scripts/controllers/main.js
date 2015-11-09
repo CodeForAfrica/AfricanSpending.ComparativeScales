@@ -30,6 +30,8 @@ angular.module('comparativescalesApp')
     $scope.showImageButton = true;
     $scope.icon;
 
+    $scope.selectedComparisons = [];
+
     //output mode values
     $scope.boxwidth = 600;
     $scope.boxheight = 300;
@@ -51,6 +53,7 @@ angular.module('comparativescalesApp')
         source: '',
         credits: '',
         itemsNumber: '',
+        objvalue: '',
         id : id,
         icon: '',
         isSelected: false,
@@ -79,6 +82,16 @@ angular.module('comparativescalesApp')
       $scope.comparisons.splice(ids.indexOf(id),1)
       $scope.editMode = false;
 
+    }
+
+    $scope.modComparisons = function(isSelected, id){
+      console.log(isSelected, id)
+      if(isSelected){
+        $scope.selectedComparisons.push(id)
+        console.log("aggiunto")
+      }else{
+        $scope.selectedComparisons.splice($scope.selectedComparisons.indexOf(id),1)
+      }
     }
 
     $scope.$watch('icon', function (newValue, oldValue) {

@@ -4,7 +4,7 @@
       <div class="col-md-offset-4 col-md-4">
         <div class="btn-group">
           <button class="btn btn-success" ng-model="viewModel" btn-radio="'input'">Input</button>
-          <button class="btn btn-success" ng-class="{'disabled': outButtonDisabled}" ng-model="viewModel" btn-radio="'output'">Output</button>
+          <button class="btn btn-success" ng-class="{'disabled': !selectedComparisons.length}" ng-model="viewModel" btn-radio="'output'">Output</button>
         </div>
       </div>
     </div>
@@ -196,15 +196,9 @@
                 <button type="button" class="btn btn-success" ng-show="!comparison.icon">Add icon (.svg)</button>
               </div>
               <div style="position:absolute;top:0px;rigth:10px;">
-                <!-- <form role="form">
-                  <div class="checkbox checkbox-circle">
-                    <input type="checkbox" id="checkbox1">
-                    <label for="checkbox1">
-                    </label>
-                  </div>
-                </form> -->
                 <checkbox
                     ng-model="comparison.isSelected"
+                    ng-change="modComparisons(comparison.isSelected, comparison.id)"
                 ></checkbox>
               </div>
           </div>
@@ -246,17 +240,28 @@
         <h2>{{bignumber}} {{selUnit}}</h2>
         <p>{{description}}</p>
       </div>
-      <div>
-        <h2>{{bignumber/objvalue | number:1}}</h2>
-        <p>{{objDescription}}</p>
-      </div>
-      <div style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
+      <tabset>
+        <tab ng-repeat="comparison in comparisons | filter: comparison.isSelected" heading="{{'comparison ' + ($index+1)}}">
+          <div>
+            <h2>{{bignumber/comparison.objvalue | number:1}}</h2>
+            <p>{{comparison.objDescription}}</p>
+          </div>
+          <div style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
+            <div class="finalIcon" iconstyle="light" comparison="comparison" ng-repeat="i in getNumber(bignumber/comparison.objvalue) track by $index" svg-icon></div>
+          </div>
+          <div>
+            <h6>SOURCE: <a ng-href="{{comparison.source}}" target="_blank">{{comparison.source}}</a></h6>
+            <h6>CREDITS: {{comparison.credits}}</h6>
+          </div>
+        </tab>
+      </tabset>
+      <!-- <div style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
         <div class="finalIcon" iconstyle="light" ng-repeat="i in getNumber(bignumber/objvalue) track by $index" svg-icon></div>
       </div>
       <div>
         <h6>SOURCE: <a ng-href="{{source}}" target="_blank">{{source}}</a></h6>
         <h6>CREDITS: {{credits}}</h6>
-      </div>
+      </div> -->
     </div>
     </div>
   </div>
