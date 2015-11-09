@@ -74,7 +74,7 @@
           add comparison
         </button>
       </div>
-      <div ng-show="comparisons.length" class="newComparison panelFade" ng-repeat="comparison in comparisons | orderBy: '-id' track by comparison.id">
+      <div ng-show="comparisons.length" ng-class="{'selected': comparison.isSelected}" class="newComparison panelFade" ng-repeat="comparison in comparisons | orderBy: '-id' track by comparison.id">
         <ng-form name="comparisonFieldForm">
         <div class="row rowComp">
           <div class="col-md-8">
@@ -178,6 +178,7 @@
         </div>
         </div>
           <div class="col-md-4 panelFade">
+
               <div
                 ngf-select="upload($files,comparison.id)"
                 ngf-drop="dropAvailable"
@@ -193,6 +194,18 @@
                >
                 <div class="svgIconContainer" comparison="comparison" svg-icon></div>
                 <button type="button" class="btn btn-success" ng-show="!comparison.icon">Add icon (.svg)</button>
+              </div>
+              <div style="position:absolute;top:0px;rigth:10px;">
+                <!-- <form role="form">
+                  <div class="checkbox checkbox-circle">
+                    <input type="checkbox" id="checkbox1">
+                    <label for="checkbox1">
+                    </label>
+                  </div>
+                </form> -->
+                <checkbox
+                    ng-model="comparison.isSelected"
+                ></checkbox>
               </div>
           </div>
         </div>

@@ -53,6 +53,7 @@ angular.module('comparativescalesApp')
         itemsNumber: '',
         id : id,
         icon: '',
+        isSelected: false,
         isActive:true
       }
       $scope.comparisons.push(elm)

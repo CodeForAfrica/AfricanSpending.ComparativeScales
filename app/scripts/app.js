@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap',
-    'ngFileUpload'
+    'ngFileUpload',
+    'ui.checkbox'
   ])
   .config(function ($routeProvider) {
     $routeProvider
