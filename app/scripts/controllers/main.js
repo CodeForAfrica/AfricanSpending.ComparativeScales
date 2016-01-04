@@ -30,7 +30,7 @@ angular.module('comparativescalesApp')
     $scope.showImageButton = true;
     $scope.icon;
 
-    //$scope.selectedComparisons = [];
+    $scope.selectedComparisons = [];
 
     //output mode values
     $scope.boxwidth = 600;
@@ -90,10 +90,10 @@ angular.module('comparativescalesApp')
         $scope.comparisons.filter(function(d){
           return d.id == id;
         })[0].isSelected = true;
-        //$scope.selectedComparisons.push(id)
+        $scope.selectedComparisons.push(id)
         //console.log("aggiunto")
       }else{
-        //$scope.selectedComparisons.splice($scope.selectedComparisons.indexOf(id),1)
+        $scope.selectedComparisons.splice($scope.selectedComparisons.indexOf(id),1)
         $scope.comparisons.filter(function(d){
           return d.id == id;
         })[0].isSelected = false;
