@@ -8,7 +8,7 @@
  * Controller of the comparativescalesApp
  */
 angular.module('comparativescalesApp')
-  .controller('MainCtrl', function ($scope, $timeout, $http, $location, Upload, currencies) {
+  .controller('MainCtrl', function ($scope, $timeout, $http, $location, $uibModal, Upload, currencies) {
 
     //edit mode
     $scope.viewModel = 'input';
@@ -98,6 +98,19 @@ angular.module('comparativescalesApp')
           return d.id == id;
         })[0].isSelected = false;
       }
+    }
+
+    $scope.open = function () {
+
+      var modalInstance = $uibModal.open({
+        templateUrl: 'views/addicon.html',
+        controller: 'IconmodalCtrl'
+        // resolve: {
+        //   items: function () {
+        //     return $scope.items;
+        //   }
+        // }
+      });
     }
 
     $scope.$watch('icon', function (newValue, oldValue) {
