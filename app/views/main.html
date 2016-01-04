@@ -241,7 +241,7 @@
         <p>{{description}}</p>
       </div>
       <tabset>
-        <tab ng-repeat="comparison in comparisons | filter: comparison.isSelected" heading="{{'comparison ' + ($index+1)}}">
+        <tab ng-repeat="comparison in comparisons | filter: {isSelected:true}" heading="{{'comparison ' + ($index+1)}}">
           <div>
             <h2>{{bignumber/comparison.objvalue | number:1}}</h2>
             <p>{{comparison.objDescription}}</p>
