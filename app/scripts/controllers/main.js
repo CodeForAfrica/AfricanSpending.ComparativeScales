@@ -132,25 +132,28 @@ angular.module('comparativescalesApp')
     });
 
 
-    $scope.$watch("[boxwidth, boxheight, gistId, iframeheight, gistVersion]", function (newValue, oldValue) {
+    $scope.$watch("[boxwidth, boxheight, iframeheight, layout, iconStyle, iconSize, selectedFonts, gistId, gistVersion]", function (newValue, oldValue) {
       if(newValue[0] && newValue[1] && newValue[2] && newValue[3] && newValue[4]){
         $scope.embedCode = '<iframe src="' +$scope.baseUrl
-        + 'width=' + newValue[0]
-        + '&boxheight='
-        + newValue[1]
-         + '&id='+ newValue[2] + '&version=' + newValue[4] +'" width="' + newValue[0] +'" height="' + newValue[3] +'" frameborder="0"></iframe>'
+        + '&boxheight=' + newValue[1]
+        + '&height=' + newValue[2]
+        + '&layout=' + newValue[3]
+        + '&style=' + newValue[4]
+        + '&size=' + newValue[5]
+        + '&fonts=' + newValue[6]
+        + '&id='+ newValue[7] + '&version=' + newValue[8] +'" width="' + newValue[0] +'" height="' + newValue[2] +'" frameborder="0"></iframe>'
       }
     });
 
-    $scope.svgIcon;
-
-    $scope.$watch("[objDescription, objvalue, svgIcon, source]", function (newValue, oldValue) {
-      if(newValue[0] && newValue[1] && newValue[2] && newValue[3]){
-          $scope.outButtonDisabled = false;
-        }else{
-          $scope.outButtonDisabled = true;
-        }
-    });
+    // $scope.svgIcon;
+    //
+    // $scope.$watch("[objDescription, objvalue, svgIcon, source]", function (newValue, oldValue) {
+    //   if(newValue[0] && newValue[1] && newValue[2] && newValue[3]){
+    //       $scope.outButtonDisabled = false;
+    //     }else{
+    //       $scope.outButtonDisabled = true;
+    //     }
+    // });
 
     $scope.getNumber = function(num) {
       if(num){
@@ -186,27 +189,35 @@ angular.module('comparativescalesApp')
     };
 
     $scope.publishGist = function(){
+        var comparisons = $scope.comparisons
+          .filter(function(d){return d.isSelected})
+          .map(function(d){
+            var elm = {
+              objDescription: d.objDescription,
+              source: d.source,
+              credits: d.credits,
+              itemsNumber: Math.ceil($scope.bignumber/d.objvalue),
+              icon: d.icon
+            };
+            return elm;
+          })
+
         var config = {
           bignumber: $scope.bignumber,
           description: $scope.description,
           selUnit: $scope.selUnit,
-          objDescription: $scope.objDescription,
-          source: $scope.source,
-          credits: $scope.credits,
-          itemsNumber: Math.ceil($scope.bignumber/$scope.objvalue)
+          comparisons: comparisons
         }
-            var data = 	{
-      	  "description": $scope.description,
-      	  "public": true,
-      	  "files": {
-      	    "config.json": {
-      	      "content": JSON.stringify(config)
-      	    },
-            "icon.svg": {
-              "content": $scope.svgIcon
+
+        var data = 	{
+          "description": $scope.description,
+          "public": true,
+          "files": {
+            "config.json": {
+              "content": JSON.stringify(config)
             }
-      	  }
-      	};
+          }
+        };
 
       data = JSON.stringify( data );
       $scope.savinggist = true;

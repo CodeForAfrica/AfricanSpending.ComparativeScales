@@ -43,11 +43,11 @@ angular
           config : function (apiservice, $location) {
             var params = $location.search();
             return apiservice.getGistFile(params.id, params.version, 'config.json')
-          },
-          svgIcon : function (apiservice, $location) {
-            var params = $location.search();
-            return apiservice.getGistFile(params.id, params.version, 'icon.svg')
           }
+          // svgIcon : function (apiservice, $location) {
+          //   var params = $location.search();
+          //   return apiservice.getGistFile(params.id, params.version, 'icon.svg')
+          // }
         }
       })
       .otherwise({
