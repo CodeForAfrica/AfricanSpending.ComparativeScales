@@ -44,6 +44,18 @@ angular.module('comparativescalesApp')
     $scope.addButtonDisabled =true;
     $scope.credits;
     $scope.savinggist = false;
+    $scope.fontsList = [
+      {label:'Montserrat/Open', slug:'moop'},
+      {label:'Tizio/Caio', slug:'tica'},
+      {label:'Gino/Pinotto', slug:'gipi'}
+    ];
+    $scope.selectedFonts = $scope.fontsList[0].slug;
+    $scope.iconsSize = ['small', 'medium', 'large'];
+    $scope.iconSize = $scope.iconsSize[1];
+    $scope.iconsStyle = ['light', 'dark'];
+    $scope.iconStyle = $scope.iconsStyle[0];
+    $scope.layouts = ['tabs', 'columns'];
+    $scope.layout = $scope.layouts[0];
 
     $scope.addComparison = function(){
       $scope.editMode = true;

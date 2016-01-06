@@ -13,6 +13,58 @@ body {
 hr {
 border-color: rgba(0,0,0,0.12);
 }
+/* typography */
+h2 {
+font-weight: 700;
+font-family: 'Montserrat', sans-serif;
+font-size: 34px;
+color: #4A4A4A;
+letter-spacing: 1px;
+line-height: 34px;
+text-transform: uppercase;
+}
+
+.output p {
+  font-weight: 400;
+font-size: 14px;
+letter-spacing: 0px;
+line-height: 22px;
+text-transform: none;
+}
+
+h6 {
+    font-weight: 400;
+font-family: 'Open Sans', sans-serif;
+font-size: 12px;
+color: #4A4A4A;
+letter-spacing: 0px;
+line-height: 15px;
+text-transform: none;
+}
+
+h4 {
+font-weight: 700;
+font-family: 'Montserrat', sans-serif;
+font-size: 14px;
+color: #4A4A4A;
+letter-spacing: 1px;
+line-height: 34px;
+text-transform: uppercase;
+}
+
+span.step {
+  background: #4A4A4A;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6em;
+  margin-right: 5px;
+  text-align: center;
+  width: 1.6em;
+}
 
 .viewMenu{
   position: fixed;
@@ -82,9 +134,22 @@ border-color: rgba(0,0,0,0.12);
 }*/
 
 .finalIcon{
+  float: left;
+}
+
+.icon-small{
+  width: 50px;
+  height: 50px;
+}
+
+.icon-medium{
   width: 100px;
   height: 100px;
-  float: left;
+}
+
+.icon-large{
+  width: 150px;
+  height: 150px;
 }
 
 .ng-hide-add, .ng-hide-remove {
@@ -101,68 +166,39 @@ border-color: rgba(0,0,0,0.12);
 
 .output{
 text-align: center;
-background-color: #fff;
+
 padding: 20px;
+}
+
+.output.light{
+  background-color: #fff;
+  color: #4A4A4A;
+}
+
+.output.light svg *{
+  fill: #4A4A4A;
+}
+
+.output.dark{
+  background-color: #4A4A4A;
+  color: #fff;
+}
+
+.output.dark p,
+.output.dark h2,
+.output.dark h6
+{
+  color: #fff;
+}
+
+.output.dark svg *{
+  fill: #fff;
 }
 
 .big-number-output{
   border-bottom: 1px solid #ccc;
 }
 
-/* typography */
-h2 {
-font-weight: 700;
-font-family: 'Montserrat', sans-serif;
-font-size: 34px;
-color: #4A4A4A;
-letter-spacing: 1px;
-line-height: 34px;
-text-transform: uppercase;
-}
-
-.output p {
-  font-weight: 400;
-font-family: 'Open Sans', sans-serif;
-font-size: 14px;
-color: #4A4A4A;
-letter-spacing: 0px;
-line-height: 22px;
-text-transform: none;
-}
-
-h6 {
-    font-weight: 400;
-font-family: 'Open Sans', sans-serif;
-font-size: 12px;
-color: #4A4A4A;
-letter-spacing: 0px;
-line-height: 15px;
-text-transform: none;
-}
-
-h4 {
-font-weight: 700;
-font-family: 'Montserrat', sans-serif;
-font-size: 14px;
-color: #4A4A4A;
-letter-spacing: 1px;
-line-height: 34px;
-text-transform: uppercase;
-}
-
-span.step {
-  background: #4A4A4A;
-  border-radius: 0.8em;
-  -moz-border-radius: 0.8em;
-  -webkit-border-radius: 0.8em;
-  color: #ffffff;
-  display: inline-block;
-  font-weight: bold;
-  line-height: 1.6em;
-  margin-right: 5px;
-  text-align: center;
-  width: 1.6em;
-}
 
 /* buttons */
 .btn-lg{
@@ -490,6 +526,23 @@ letter-spacing: 1px;
 line-height: 24px;
 text-transform: uppercase;
 }
+
+#output.moop{
+  font-family: 'Montserrat', serif;
+}
+
+#output.moop h2, #output.moop h6{
+  font-family: 'Open Sans', sans-serif;
+}
+
+#output.tica{
+  font-family: Times, serif;
+}
+
+#output.tica h2, #output.tica h6{
+  font-family: Arial, sans-serif;
+}
+
 
 /* round check box
 
