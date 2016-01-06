@@ -1,25 +1,3 @@
-<!-- <div class="container" ng-style="{'width': params.width+'px'}">
-  <div class="row">
-    <div class="col-md-12">
-      <div>
-        <h2>{{config.bignumber}} {{config.selUnit}}</h2>
-        <p>{{config.description}}</p>
-      </div>
-      <div>
-        <h2>{{config.itemsNumber}}</h2>
-        <p>{{config.objDescription}}</p>
-      </div>
-      <div style="overflow-y:scroll;" ng-style="{'height': params.boxheight+'px'}">
-        <div class="finalIcon" iconstyle="light" ng-repeat="i in getNumber(config.itemsNumber) track by $index" svg-icon></div>
-      </div>
-      <div>
-        <p>SOURCE: <a ng-href="{{config.source}}" target="_blank">{{config.source}}</a></p>
-        <p>SOURCE: {{config.credits}}</p>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <div id="output" ng-class="{moop:'moop', tica:'tica', gipi:'gipi'}[params.fonts]">
   <div
     ng-class="{light:'light', dark:'dark'}[params.style]"
@@ -76,6 +54,9 @@
       <div>
         <h6>SOURCE: <a ng-href="{{comparison.source}}" target="_blank">{{comparison.source}}</a></h6>
         <h6>CREDITS: {{comparison.credits}}</h6>
+        <p ng-if="config.selUnit != 'USD'">
+          on {{config.changeRate.date | date}}, 1 {{config.selUnit}} was {{config.changeRate.rate}} USD
+        </p>
       </div>
     </div>
   </div>

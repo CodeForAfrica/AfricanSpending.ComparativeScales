@@ -28,6 +28,9 @@ angular
         resolve:{
           currencies: function(apiservice){
             return apiservice.getCurrenciesList();
+          },
+          rates: function(apiservice){
+            return apiservice.getCurrenciesRates();
           }
         }
       })
@@ -35,19 +38,10 @@ angular
         templateUrl: 'views/embed.html',
         controller: 'EmbedCtrl',
         resolve:{
-          // gist : function (apiservice, $location) {
-          //   var params = $location.search();
-          //   console.log(params.id)
-          //   return apiservice.getGist(params.id)
-          // },
           config : function (apiservice, $location) {
             var params = $location.search();
             return apiservice.getGistFile(params.id, params.version, 'config.json')
           }
-          // svgIcon : function (apiservice, $location) {
-          //   var params = $location.search();
-          //   return apiservice.getGistFile(params.id, params.version, 'icon.svg')
-          // }
         }
       })
       .otherwise({

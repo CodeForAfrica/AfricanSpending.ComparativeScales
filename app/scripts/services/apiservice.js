@@ -52,6 +52,25 @@ angular.module('comparativescalesApp')
         });
 
         return deferred.promise;
+      },
+      getCurrenciesRates: function () {
+        var deferred = $q.defer();
+        // $http({
+        //   method: 'GET',
+        //   url : 'https://openexchangerates.org/api/latest.json',
+        //   params:{
+        //       'app_id': '31beaa8ba1c14720bd5a8734b937069f'
+        //     }
+        $http({
+          method: 'GET',
+          url : 'data/rates.json'
+        }).success(function(data){
+          deferred.resolve(data);
+        }).error(function(){
+          deferred.reject("An error occured while fetching currencies rates");
+        });
+
+        return deferred.promise;
       }
     };
   });

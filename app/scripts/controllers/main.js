@@ -8,8 +8,9 @@
  * Controller of the comparativescalesApp
  */
 angular.module('comparativescalesApp')
-  .controller('MainCtrl', function ($scope, $timeout, $http, $location, $uibModal, Upload, currencies) {
+  .controller('MainCtrl', function ($scope, $timeout, $http, $location, $uibModal, Upload, currencies, rates) {
 
+    console.log(rates)
     //edit mode
     $scope.viewModel = 'input';
 
@@ -202,10 +203,13 @@ angular.module('comparativescalesApp')
             return elm;
           })
 
+        var changeRate = selUnit != 'USD'?{rate: rates.rates[selUnit],date:rates.timestamp}:null;
+
         var config = {
           bignumber: $scope.bignumber,
           description: $scope.description,
           selUnit: $scope.selUnit,
+          changeRate: changeRate,
           comparisons: comparisons
         }
 
