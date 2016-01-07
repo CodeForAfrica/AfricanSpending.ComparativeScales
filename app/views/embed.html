@@ -35,7 +35,7 @@
   <div class="row" ng-if="params.layout == 'columns'">
     <div
       ng-repeat="comparison in config.comparisons"
-      ng-class="'col-sm-'+(12/config.comparisons.length)"
+      ng-class="'col-xs-'+(12/config.comparisons.length)"
       >
       <div>
         <h2>{{comparison.itemsNumber | number:1}}</h2>

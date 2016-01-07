@@ -31,6 +31,9 @@ angular
           },
           rates: function(apiservice){
             return apiservice.getCurrenciesRates();
+          },
+          editorpicks: function(apiservice){
+            return apiservice.getFile('data/editorpicks/data.json');
           }
         }
       })

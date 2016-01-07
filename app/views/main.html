@@ -296,7 +296,7 @@
       <div class="row" ng-if="layout == 'columns'">
         <div
           ng-repeat="comparison in comparisons | filter: {isSelected:true}"
-          ng-class="'col-sm-'+(12/comparisons.length)"
+          ng-class="'col-xs-'+(12/comparisons.length)"
           >
           <div>
             <h2>{{bignumber/comparison.objvalue | number:1}}</h2>

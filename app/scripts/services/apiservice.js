@@ -71,6 +71,19 @@ angular.module('comparativescalesApp')
         });
 
         return deferred.promise;
-      }
+      },
+      getFile: function (url) {
+        var deferred = $q.defer();
+        $http({
+          method: 'GET',
+          url : url
+        }).success(function(data){
+          deferred.resolve(data);
+        }).error(function(){
+          deferred.reject("An error occured while fetching file");
+        });
+
+        return deferred.promise;
+      },
     };
   });
