@@ -6,7 +6,7 @@
     "itemsNumber": "",
     "objvalue": 100,
     "id" : "ep_1",
-    "icon": "icon.svg",
+    "iconUrl": "data/editorpicks/icons/icon1.svg",
     "isSelected": false,
     "isActive":false
   },
@@ -17,7 +17,7 @@
     "itemsNumber": "",
     "objvalue": 200,
     "id" : "ep_2",
-    "icon": "icon2.svg",
+    "iconUrl": "data/editorpicks/icons/icon2.svg",
     "isSelected": false,
     "isActive":false
   }

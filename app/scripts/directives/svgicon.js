@@ -7,7 +7,7 @@
  * # svgIcon
  */
 angular.module('comparativescalesApp')
-  .directive('svgIcon', function () {
+  .directive('svgIcon', function (apiservice) {
     return {
       restrict: 'A',
       scope: {
@@ -17,7 +17,17 @@ angular.module('comparativescalesApp')
         var container = d3.select(element[0]);
         var index = attrs.index;
         var svg;
-        if(scope.comparison.icon){
+
+        if(scope.comparison.isEditorpick && !scope.comparison.icon){
+          apiservice.getFile(scope.comparison.iconUrl).then(
+            function(data){
+              scope.comparison.icon = data;
+            },
+            function(error){
+              console.warn('there was a problem in loding the icon')
+            }
+          )
+        }else if(scope.comparison.icon){
           container.empty()
           container.html(scope.comparison.icon)
           svg = container.select('svg')

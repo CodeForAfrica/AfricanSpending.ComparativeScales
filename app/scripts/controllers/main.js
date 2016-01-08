@@ -12,6 +12,10 @@ angular.module('comparativescalesApp')
 
     //edit mode
     $scope.viewModel = 'input';
+    $scope.editorpicks = editorpicks;
+    $scope.editorpicks.forEach(function(d){
+      d.isEditorpick = true;
+    })
 
     //source comparison values
     $scope.currencies = currencies;
@@ -106,6 +110,21 @@ angular.module('comparativescalesApp')
       }else{
         $scope.selectedComparisons.splice($scope.selectedComparisons.indexOf(id),1)
         $scope.comparisons.filter(function(d){
+          return d.id == id;
+        })[0].isSelected = false;
+      }
+    }
+
+    $scope.modEditorpicks = function(isSelected, id){
+      //console.log(isSelected, id)
+      if(isSelected){
+        $scope.editorpicks.filter(function(d){
+          return d.id == id;
+        })[0].isSelected = true;
+        $scope.selectedComparisons.push(id)
+      }else{
+        $scope.selectedComparisons.splice($scope.selectedComparisons.indexOf(id),1)
+        $scope.editorpicks.filter(function(d){
           return d.id == id;
         })[0].isSelected = false;
       }

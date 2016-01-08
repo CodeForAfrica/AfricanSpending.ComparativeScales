@@ -74,6 +74,72 @@
           add comparison
         </button>
       </div>
+    <!-- start editorpicks -->
+    <div ng-class="{'selected': editorpick.isSelected}" class="newComparison panelFade" ng-repeat="editorpick in editorpicks | orderBy: '-id' track by editorpick.id">
+      <div class="row rowComp">
+        <div class="col-md-8">
+      <div class="infoComp">
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            <span class="label label-default">editor pick</span>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>item value</label>
+            <p>{{editorpick.objvalue}}</p>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>unit</label>
+            <p>{{selUnit}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row panelFade">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>number of items</label>
+            <p>{{bignumber/editorpick.objvalue | number:1}}</p>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="form-group">
+            <label>description</label>
+              <p>{{editorpick.objDescription}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row panelFade" >
+        <div class="col-md-12 credits">
+          <label>source</label>
+          <p>{{editorpick.source}}</p>
+        </div>
+      </div>
+      <div class="row panelFade">
+        <div class="col-md-12 credits">
+          <label>credits</label>
+          <p>{{editorpick.credits}}</p>
+        </div>
+      </div>
+      </div>
+      </div>
+        <div class="col-md-4 panelFade">
+            <div class="svgIconContainer" comparison="editorpick" svg-icon></div>
+            <div style="position:absolute;top:0px;rigth:10px;">
+              <checkbox
+                  ng-model="editorpick.isSelected"
+                  ng-change="modEditorpicks(editorpick.isSelected, editorpick.id)"
+              ></checkbox>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- end editorpicks -->
       <div ng-show="comparisons.length" ng-class="{'selected': comparison.isSelected}" class="newComparison panelFade" ng-repeat="comparison in comparisons | orderBy: '-id' track by comparison.id">
         <ng-form name="comparisonFieldForm">
         <div class="row rowComp">
@@ -272,7 +338,7 @@
         <p>{{description}}</p>
       </div>
       <tabset ng-if="layout == 'tabs'">
-        <tab ng-repeat="comparison in comparisons | filter: {isSelected:true}" heading="{{'comparison ' + ($index+1)}}">
+        <tab ng-repeat="comparison in comparisons.concat(editorpicks) | filter: {isSelected:true}" heading="{{'comparison ' + ($index+1)}}">
           <div>
             <h2>{{bignumber/comparison.objvalue | number:1}}</h2>
             <p>{{comparison.objDescription}}</p>
@@ -295,8 +361,8 @@
       </tabset>
       <div class="row" ng-if="layout == 'columns'">
         <div
-          ng-repeat="comparison in comparisons | filter: {isSelected:true}"
-          ng-class="'col-xs-'+(12/comparisons.length)"
+          ng-repeat="comparison in filtered = (comparisons.concat(editorpicks) | filter: {isSelected:true})"
+          ng-class="'col-xs-'+(12/filtered.length)"
           >
           <div>
             <h2>{{bignumber/comparison.objvalue | number:1}}</h2>
