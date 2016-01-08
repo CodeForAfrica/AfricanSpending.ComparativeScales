@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name comparativescalesApp.controller:MainCtrl
+ * @name comparativescalesApp.controller:CreateCtrl
  * @description
- * # MainCtrl
+ * # CreateCtrl
  * Controller of the comparativescalesApp
  */
 angular.module('comparativescalesApp')
-  .controller('MainCtrl', function ($scope, $timeout, $http, $location, $uibModal, Upload, currencies, rates, editorpicks) {
+  .controller('CreateCtrl', function ($scope, $timeout, $http, $location, $uibModal, Upload, currencies, rates, editorpicks) {
 
     //edit mode
     $scope.viewModel = 'input';

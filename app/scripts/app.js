@@ -22,9 +22,9 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+      .when('/create', {
+        templateUrl: 'views/create.html',
+        controller: 'CreateCtrl',
         resolve:{
           currencies: function(apiservice){
             return apiservice.getCurrenciesList();
@@ -47,7 +47,12 @@ angular
           }
         }
       })
+      .when('/home', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl',
+        controllerAs: 'home'
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/home'
       });
   });
