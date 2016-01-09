@@ -22,7 +22,8 @@ angular.module('comparativescalesApp')
     $scope.bignumber;
     $scope.description;
     $scope.units = d3.keys($scope.currencies);
-    $scope.selUnit = 'USD';
+    //$scope.selUnit = 'USD';
+    $scope.selUnit = {selected:'USD'};
 
     //output comparison values
 

@@ -33,6 +33,7 @@ angular.module('comparativescalesApp')
           svg = container.select('svg')
           svg
             .attr("width", "100%")
+            .attr("height", "100%")
 
           var credits = '';
           var texts = svg.selectAll('text')
@@ -52,6 +53,7 @@ angular.module('comparativescalesApp')
             container.html(newValue)
             svg = container.select('svg')
             svg.attr("width", "100%")
+            .attr("height", "100%")
 
             var credits = '';
 

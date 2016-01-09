@@ -18,7 +18,6 @@ angular
     'ngTouch',
     'ui.bootstrap',
     'ngFileUpload',
-    'ui.checkbox',
     'ui.select'
   ])
   .config(function ($routeProvider) {
