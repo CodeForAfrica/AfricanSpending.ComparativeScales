@@ -23,6 +23,10 @@
     opacity: 1;
 }
 
+.thumbnail .checkbox{
+  z-index: 2;
+}
+
 .captionDetails {
     position:absolute;
     top:0;

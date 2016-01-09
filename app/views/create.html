@@ -93,7 +93,16 @@
   </div>
   <div class="row">
     <div class="col-md-3">
-      add
+      <div class="thumbnail">
+        <div class="caption">
+          <button type="submit" class="btn btn-default" ng-click="open()">
+            <span class="glyphicon glyphicon-plus-sign">
+          </button>
+          <p>
+            add a new comparison
+          </p>
+        </div>
+      </div>
     </div>
     <div class="col-md-3" ng-repeat="editorpick in editorpicks | orderBy: '-id' track by editorpick.id">
       <div class="thumbnail">
@@ -120,7 +129,11 @@
           </p>
           <p>
             <div class="checkbox checkbox-circle">
-              <input type="checkbox" class="styled" ng-model="editorpick.isSelected">
+              <input
+                type="checkbox"
+                class="styled"
+                ng-model="editorpick.isSelected"
+                ng-change="modEditorpicks(editorpick.isSelected, editorpick.id)">
               <label></label>
             </div>
           </p>

@@ -8,10 +8,24 @@
  * Controller of the comparativescalesApp
  */
 angular.module('comparativescalesApp')
-  .controller('IconmodalCtrl', function ($scope, $uibModalInstance,$timeout, Upload) {
-    $scope.comparison = {};
+  .controller('IconmodalCtrl', function ($scope, $uibModalInstance,$timeout, Upload, comparison, bignumber, selUnit) {
+    $scope.bignumber = bignumber;
+    $scope.selUnit = selUnit;
+    var elm = {
+      objDescription: '',
+      source: '',
+      credits: '',
+      itemsNumber: '',
+      objvalue: '',
+      icon: '',
+      isSelected: false,
+      isActive:true
+    }
+
+    $scope.comparison = comparison?comparison:elm;
+
     $scope.ok = function () {
-      $uibModalInstance.close();
+      $uibModalInstance.close($scope.comparison);
     };
 
     $scope.cancel = function () {

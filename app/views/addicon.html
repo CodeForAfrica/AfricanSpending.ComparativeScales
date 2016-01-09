@@ -1,10 +1,65 @@
 <div class="modal-header">
-    <h3 class="modal-title">Choose an icon</h3>
+    <h3 class="modal-title">add new comparison
+      <span class="pull-right glyphicon glyphicon-remove" ng-click="cancel()">
+      </span>
+    </h3>
+
 </div>
 <div class="modal-body">
   <div class="row" style="min-height:300px;">
     <div class="col-md-6">
-      un set di icone!
+      <label>how much does the item cost?</label>
+      <div class="input-group">
+        <input
+          type="number"
+          placeholder="add the amount"
+          class="form-control"
+          name="inputComparison"
+          ng-model="comparison.objvalue"
+          min="1"
+          max="{{bignumber}}"
+          ng-model-options="{ debounce: 1000 }"
+          required
+        >
+        <span class="input-group-addon">{{selUnit}}</span>
+      </div>
+      <div class="form-group">
+        <label>what is it?</label>
+        <input
+          type="text"
+          placeholder="enter a description"
+          class="form-control"
+          name="objDescription"
+          ng-model="comparison.objDescription"
+          ng-minlength="3"
+          required
+        >
+      </div>
+      <div class="form-group">
+        <label>source of the information</label>
+        <input
+          type="text"
+          placeholder="enter a link source"
+          class="form-control"
+          name="source"
+          ng-model="comparison.source"
+          ng-minlength="3"
+          required
+        >
+      </div>
+      <div class="form-group">
+        <label>credit of the icon</label>
+        <input
+          type="text"
+          placeholder="enter icon credits"
+          class="form-control"
+          name="credits"
+          ng-model="comparison.credits"
+          ng-minlength="3"
+          ng-readonly="!comparison.isActive"
+          required
+        >
+      </div>
     </div>
     <div class="col-md-6">
       <div
@@ -20,12 +75,11 @@
         class="dropArea"
        >
         <div class="svgIconContainer" svg-icon-preview></div>
-        <button type="button" class="btn btn-success" ng-show="!comparison.icon">Upload icon (.svg)</button>
+        <button type="button" class="btn btn-default" ng-show="!comparison.icon">Upload icon (.svg)</button>
       </div>
     </div>
   </div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ok()">OK continua</button>
-    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" type="button" ng-click="ok()">save</button>
 </div>

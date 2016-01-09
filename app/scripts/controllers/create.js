@@ -62,7 +62,7 @@ angular.module('comparativescalesApp')
     $scope.layouts = ['tabs', 'columns'];
     $scope.layout = $scope.layouts[0];
 
-    $scope.addComparison = function(){
+    $scope.addComparison_old = function(){
       $scope.editMode = true;
       var id = $scope.comparisons.length?$scope.comparisons.length:0;
       var elm = {
@@ -77,6 +77,13 @@ angular.module('comparativescalesApp')
         isActive:true
       }
       $scope.comparisons.push(elm)
+    }
+
+    $scope.addComparison = function(comparison){
+
+      var id = $scope.comparisons.length?$scope.comparisons.length:0;
+      comparison.id = id;
+      $scope.comparisons.push(comparison)
     }
 
     $scope.saveComparison = function(id){
@@ -131,17 +138,30 @@ angular.module('comparativescalesApp')
       }
     }
 
-    $scope.open = function () {
+    $scope.open = function (comparison) {
 
       var modalInstance = $uibModal.open({
         templateUrl: 'views/addicon.html',
-        controller: 'IconmodalCtrl'
-        // resolve: {
-        //   items: function () {
-        //     return $scope.items;
-        //   }
-        // }
+        controller: 'IconmodalCtrl',
+        size: 'lg',
+        resolve: {
+          comparison: function () {
+            return comparison;
+          },
+          bignumber:function(){
+            return $scope.bignumber;
+          },
+          selUnit: function(){
+            return $scope.selUnit.selected;
+          }
+        }
       });
+
+      modalInstance.result.then(function (comparison) {
+          $scope.addComparison(comparison)
+        }, function () {
+          $log.info('Modal dismissed at: ' + new Date());
+        });
     }
 
     $scope.$watch('icon', function (newValue, oldValue) {
