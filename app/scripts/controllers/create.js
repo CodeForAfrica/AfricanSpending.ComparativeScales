@@ -45,7 +45,6 @@ angular.module('comparativescalesApp')
     $scope.gistVersion;
     $scope.embedCode;
     $scope.baseUrl = $location.absUrl().replace('#'+$location.path(),'#') + '/embed?';
-    console.log($scope.baseUrl)
     $scope.outButtonDisabled = true;
     $scope.addButtonDisabled =true;
     $scope.credits;
@@ -197,8 +196,10 @@ angular.module('comparativescalesApp')
     //     }
     // });
 
-    $scope.getNumber = function(num) {
-      if(num){
+    $scope.getNumber = function(num, itemsNumber) {
+      if(itemsNumber){
+        return new Array(Math.round(itemsNumber));
+      }else if(num){
         return new Array(Math.round(num));
       }
     }
