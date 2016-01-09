@@ -104,6 +104,7 @@
         </div>
       </div>
     </div>
+    <!-- editor comparisons -->
     <div class="col-md-3" ng-repeat="editorpick in editorpicks | orderBy: '-id' track by editorpick.id">
       <div class="thumbnail">
         <div class="caption captionHover">
@@ -182,6 +183,22 @@
             {{comparison.objDescription}}
           </p>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bottomLine" ng-show="selectedComparisons.length">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-md-offset-3">
+        <p>
+          {{selectedComparisons.length}} comparison(s) selected
+        </p>
+      </div>
+      <div class="col-md-3">
+        <button type="button" class="btn btn-success">
+          visualize and export
+        </button>
       </div>
     </div>
   </div>

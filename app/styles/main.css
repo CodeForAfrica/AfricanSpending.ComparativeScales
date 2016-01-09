@@ -38,6 +38,17 @@
     z-index:3;
 }
 
+/* bottom line */
+
+.bottomLine{
+  position: fixed;
+  bottom: 0px;
+  background: #fff;
+  z-index: 3;
+  transition: bottom 0.2s;
+  width: 100%;
+}
+
 /* checkbox round */
 
 .checkbox {
