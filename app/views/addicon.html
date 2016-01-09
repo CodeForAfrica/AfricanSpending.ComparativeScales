@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h3 class="modal-title">add new comparison
+    <h3 class="modal-title">{{comparison.id?'edit':'add new'}} comparison
       <span class="pull-right glyphicon glyphicon-remove" ng-click="cancel()">
       </span>
     </h3>
@@ -56,7 +56,6 @@
           name="credits"
           ng-model="comparison.credits"
           ng-minlength="3"
-          ng-readonly="!comparison.isActive"
           required
         >
       </div>

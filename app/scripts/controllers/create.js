@@ -81,9 +81,11 @@ angular.module('comparativescalesApp')
 
     $scope.addComparison = function(comparison){
 
-      var id = $scope.comparisons.length?$scope.comparisons.length:0;
-      comparison.id = id;
-      $scope.comparisons.push(comparison)
+      if(!comparison.id){
+        var id = $scope.comparisons.length?$scope.comparisons.length+1:1;
+        comparison.id = id;
+        $scope.comparisons.push(comparison)
+      }
     }
 
     $scope.saveComparison = function(id){

@@ -149,5 +149,40 @@
         </div>
       </div>
     </div>
+    <!-- user comparisons -->
+    <div class="col-md-3" ng-repeat="comparison in comparisons | orderBy: '-id' track by comparison.id">
+      <div class="thumbnail">
+        <div class="caption captionHover">
+          <button type="button" class="btn btn-success" ng-click="open(comparison)">
+            edit
+          </button>
+          <span class="glyphicon glyphicon-trash" ng-click="removeComparison(comparison.id)"></span>
+        </div>
+        <div class="caption">
+          <p>
+            added by you
+          </p>
+          <p>
+            <div class="checkbox checkbox-circle">
+              <input
+                type="checkbox"
+                class="styled"
+                ng-model="comparison.isSelected"
+                ng-change="modComparisons(comparison.isSelected, comparison.id)">
+              <label></label>
+            </div>
+          </p>
+        </div>
+        <div class="svgIconContainer" comparison="comparison" svg-icon></div>
+        <div class="caption">
+          <p>
+            {{bignumber/comparison.objvalue | number:0}}
+          </p>
+          <p>
+            {{comparison.objDescription}}
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

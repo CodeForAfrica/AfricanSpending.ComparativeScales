@@ -19,7 +19,7 @@ angular.module('comparativescalesApp')
       objvalue: '',
       icon: '',
       isSelected: false,
-      isActive:true
+      isActive:false
     }
 
     $scope.comparison = comparison?comparison:elm;
