@@ -35,7 +35,7 @@
       </div><!--/.nav-collapse -->
     </div>
 </nav>
-<div class="container">
+<div class="container" ng-show="viewModel == 'input'">
   <div class="row">
     <div class="col-md-12">
       <h4><span class="step">1</span> insert the number</h4>
@@ -187,16 +187,144 @@
     </div>
   </div>
 </div>
+<!-- output mode -->
+<div class="container" ng-if="viewModel == 'output'">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>width</label>
+        <input placeholder="box width" class="form-control" name="boxwidth" ng-model="boxwidth" min="1" required>
+      </div>
+      <div class="form-group">
+        <label>height iframe</label>
+        <input type="number" placeholder="height" class="form-control" name="iframeheight" ng-model="iframeheight" min="1" required>
+      </div>
+      <div class="form-group">
+        <label>height icons box</label>
+        <input type="number" placeholder="box height" class="form-control" name="boxheight" ng-model="boxheight" min="1" required>
+      </div>
+      <div class="form-group">
+        <label>layout</label>
+        <select class="form-control" ng-model="layout">
+          <option ng-repeat="layout in layouts" value="{{layout}}">{{layout}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>fonts</label>
+        <select class="form-control" ng-model="selectedFonts">
+          <option ng-repeat="fontList in fontsList" value="{{fontList.slug}}">{{fontList.label}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>icon size</label>
+        <select class="form-control" ng-model="iconSize">
+          <option ng-repeat="iconsize in iconsSize">{{iconsize}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>style</label>
+        <select class="form-control" ng-model="iconStyle">
+          <option ng-repeat="iconstyle in iconsStyle">{{iconstyle}}</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-success" ng-click="publishGist()">
+        embed
+      </button>
+      <p ng-show="savinggist" class="panelFade"> saving to Gist...</p>
+      <div ng-show="gistId" class="panelFade">
+        <label>copy embed code </label>
+        <textarea readonly class="form-control" rows="8" ng-model="embedCode"></textarea>
+      </div>
+    </div>
+    <div id="output"class="col-md-8" ng-class="{moop:'moop', tica:'tica', gipi:'gipi'}[selectedFonts]">
+      <div
+        style="overflow-y:scroll;"
+        ng-style="{'height': iframeheight+'px', 'width':boxwidth+'px'}"
+        ng-class="{light:'light', dark:'dark'}[iconStyle]"
+        class="output">
+      <div class="big-number-output">
+        <h2>{{bignumber}} {{selUnit.selected}}</h2>
+        <p>{{description}}</p>
+      </div>
+      <div class="row" ng-if="layout == 'tabs'">
+        <div class="col-md-12">
+          <div vtabs></div>
+        </div>
+      </div>
+      <!-- <tabset ng-if="layout == 'tabs'">
+        <tab ng-repeat="comparison in comparisons.concat(editorpicks) | filter: {isSelected:true}" heading="{{'comparison ' + ($index+1)}}">
+          <div>
+            <h2>{{bignumber/comparison.objvalue | number:1}}</h2>
+            <p>{{comparison.objDescription}}</p>
+          </div>
+          <div style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
+            <div
+              class="finalIcon"
+              ng-class="{small:'icon-small', medium:'icon-medium', large:'icon-large'}[iconSize]"
+              iconstyle="light"
+              comparison="comparison"
+              ng-repeat="i in getNumber(bignumber/comparison.objvalue) track by $index"
+              svg-icon>
+            </div>
+          </div>
+          <div>
+            <h6>SOURCE: <a ng-href="{{comparison.source}}" target="_blank">{{comparison.source}}</a></h6>
+            <h6>CREDITS: {{comparison.credits}}</h6>
+          </div>
+        </tab>
+      </tabset> -->
+      <div class="row">
+        <div class="col-md-12" ng-if="layout == 'columns'">
+          <p>
+            costs like
+          </p>
+        </div>
+      </div>
+      <div class="row" ng-if="layout == 'columns'">
+        <div
+          ng-repeat="comparison in filtered = (comparisons.concat(editorpicks) | filter: {isSelected:true})"
+          ng-class="'col-xs-'+(12/filtered.length)"
+          >
+          <div>
+            <h2>{{bignumber/comparison.objvalue | number:0}}</h2>
+            <p>{{comparison.objDescription}}</p>
+          </div>
+          <div style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
+            <div
+              class="finalIcon"
+              ng-class="{small:'icon-small', medium:'icon-medium', large:'icon-large'}[iconSize]"
+              iconstyle="light"
+              comparison="comparison"
+              ng-repeat="i in getNumber(bignumber/comparison.objvalue) track by $index"
+              svg-icon>
+            </div>
+          </div>
+          <div>
+            <h6>SOURCE: <a ng-href="{{comparison.source}}" target="_blank">{{comparison.source}}</a></h6>
+            <h6>CREDITS: {{comparison.credits}}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
 <div class="bottomLine" ng-show="selectedComparisons.length">
   <div class="container">
     <div class="row">
-      <div class="col-md-3 col-md-offset-3">
+      <div class="col-md-3" ng-show="viewModel == 'output'">
+        <button type="button" class="btn btn-success" ng-show="viewModel == 'output'" ng-click="viewModel = 'input'">
+          back to edit
+        </button>
+      </div>
+      <div class="col-md-3 col-md-offset-3" ng-show="viewModel == 'input'">
         <p>
           {{selectedComparisons.length}} comparison(s) selected
         </p>
       </div>
       <div class="col-md-3">
-        <button type="button" class="btn btn-success">
+        <button type="button" class="btn btn-success" ng-show="viewModel == 'input'" ng-click="viewModel = 'output'">
           visualize and export
         </button>
       </div>

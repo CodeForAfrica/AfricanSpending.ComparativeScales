@@ -1,0 +1,38 @@
+<ul class="nav nav-pills nav-stacked col-xs-3">
+    <li>
+      costs like
+    </li>
+    <li
+      ng-click="tabSwitch(comparison.id)"
+      ng-class="tabActive==comparison.id?'active':''"
+      ng-repeat="comparison in total">
+
+        <h3>{{comparison.objvalue}}</h3>
+        <p>
+          {{comparison.objDescription}}
+        </p>
+      </a>
+    </li>
+</ul>
+<div class="tab-content col-xs-9">
+    <div
+    ng-class="tabActive==comparison.id?'active':''"
+      ng-repeat="comparison in total"
+      class="tab-pane"
+      >
+      <div style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
+        <div
+          class="finalIcon"
+          ng-class="{small:'icon-small', medium:'icon-medium', large:'icon-large'}[iconSize]"
+          iconstyle="light"
+          comparison="comparison"
+          ng-repeat="i in getNumber(bignumber/comparison.objvalue, comparison.itemsNumber) track by $index"
+          svg-icon>
+        </div>
+      </div>
+      <div>
+        <h6>SOURCE: <a ng-href="{{comparison.source}}" target="_blank">{{comparison.source}}</a></h6>
+        <h6>CREDITS: {{comparison.credits}}</h6>
+      </div>
+    </div>
+</div>

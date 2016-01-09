@@ -10,7 +10,12 @@
     <h2>{{config.bignumber}} {{config.selUnit}}</h2>
     <p>{{config.description}}</p>
   </div>
-  <tabset ng-if="params.layout == 'tabs'">
+  <div class="row" ng-if="params.layout == 'tabs'">
+    <div class="col-md-12">
+      <div vtabs></div>
+    </div>
+  </div>
+  <!-- <tabset ng-if="params.layout == 'tabs'">
     <tab ng-repeat="comparison in config.comparisons" heading="{{'comparison ' + ($index+1)}}">
       <div>
         <h2>{{comparison.itemsNumber | number:1}}</h2>
@@ -31,7 +36,7 @@
         <h6>CREDITS: {{comparison.credits}}</h6>
       </div>
     </tab>
-  </tabset>
+  </tabset> -->
   <div class="row" ng-if="params.layout == 'columns'">
     <div
       ng-repeat="comparison in config.comparisons"

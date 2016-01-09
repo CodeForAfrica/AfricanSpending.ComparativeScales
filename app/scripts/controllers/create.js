@@ -44,7 +44,8 @@ angular.module('comparativescalesApp')
     $scope.gistId;
     $scope.gistVersion;
     $scope.embedCode;
-    $scope.baseUrl = $location.absUrl() + 'embed?';
+    $scope.baseUrl = $location.absUrl().replace('#'+$location.path(),'#') + '/embed?';
+    console.log($scope.baseUrl)
     $scope.outButtonDisabled = true;
     $scope.addButtonDisabled =true;
     $scope.credits;
@@ -62,22 +63,22 @@ angular.module('comparativescalesApp')
     $scope.layouts = ['tabs', 'columns'];
     $scope.layout = $scope.layouts[0];
 
-    $scope.addComparison_old = function(){
-      $scope.editMode = true;
-      var id = $scope.comparisons.length?$scope.comparisons.length:0;
-      var elm = {
-        objDescription: '',
-        source: '',
-        credits: '',
-        itemsNumber: '',
-        objvalue: '',
-        id : id,
-        icon: '',
-        isSelected: false,
-        isActive:true
-      }
-      $scope.comparisons.push(elm)
-    }
+    // $scope.addComparison_old = function(){
+    //   $scope.editMode = true;
+    //   var id = $scope.comparisons.length?$scope.comparisons.length:0;
+    //   var elm = {
+    //     objDescription: '',
+    //     source: '',
+    //     credits: '',
+    //     itemsNumber: '',
+    //     objvalue: '',
+    //     id : id,
+    //     icon: '',
+    //     isSelected: false,
+    //     isActive:true
+    //   }
+    //   $scope.comparisons.push(elm)
+    // }
 
     $scope.addComparison = function(comparison){
 
@@ -230,7 +231,7 @@ angular.module('comparativescalesApp')
     };
 
     $scope.publishGist = function(){
-        var comparisons = $scope.comparisons
+        var comparisons = $scope.comparisons.concat($scope.editorpicks)
           .filter(function(d){return d.isSelected})
           .map(function(d){
             var elm = {
@@ -238,17 +239,18 @@ angular.module('comparativescalesApp')
               source: d.source,
               credits: d.credits,
               itemsNumber: Math.ceil($scope.bignumber/d.objvalue),
+              id: d.id,
               icon: d.icon
             };
             return elm;
           })
 
-        var changeRate = $scope.selUnit != 'USD'?{rate: rates.rates[selUnit],date:rates.timestamp}:null;
+        var changeRate = $scope.selUnit != 'USD'?{rate: rates.rates[$scope.selUnit.selected],date:rates.timestamp}:null;
 
         var config = {
           bignumber: $scope.bignumber,
           description: $scope.description,
-          selUnit: $scope.selUnit,
+          selUnit: $scope.selUnit.selected,
           changeRate: changeRate,
           comparisons: comparisons
         }

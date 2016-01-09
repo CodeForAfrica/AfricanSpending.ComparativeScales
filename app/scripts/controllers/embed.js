@@ -12,9 +12,12 @@ angular.module('comparativescalesApp')
 
       $scope.config = config;
       $scope.params = $location.search();
-
-      $scope.getNumber = function(num) {
-        if(num){
+      $scope.boxheight = $scope.params.boxheight;
+      $scope.iconSize = $scope.params.size;
+      $scope.getNumber = function(num, itemsNumber) {
+        if(itemsNumber){
+          return new Array(itemsNumber);
+        }else if(num){
           return new Array(Math.round(num));
         }
       }
