@@ -20,7 +20,7 @@
       ng-repeat="comparison in total"
       class="tab-pane"
       >
-      <div class="outputIconBox" style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
+      <div tagged-infinite-scroll="getMore()" class="outputIconBox" style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
         <div
           class="finalIcon"
           ng-class="{small:'icon-small', medium:'icon-medium', large:'icon-large'}[iconSize]"
@@ -33,7 +33,7 @@
       <div>
         <h6>SOURCE: {{comparison.source}}</a></h6>
         <h6>CREDITS: {{comparison.credits}}</h6>
-        <p ng-if="config.selUnit != 'USD'">
+        <p ng-if="config.selUnit || selUnit.selected != 'USD'">
             on {{config.changeRate.date*1000 || rates.timestamp*1000 | date}}, 1 USD was {{config.changeRate.rate || rates.rates[selUnit.selected] | number:2}} {{config.selUnit || selUnit.selected}}
         </p>
       </div>

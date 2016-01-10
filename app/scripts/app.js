@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'ui.bootstrap',
     'ngFileUpload',
-    'ui.select'
+    'ui.select',
+    'tagged.directives.infiniteScroll'
   ])
   .config(function ($routeProvider) {
     $routeProvider

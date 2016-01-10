@@ -305,7 +305,7 @@
             <h2>{{bignumber/comparison.objvalue | number:0}}</h2>
             <p>{{comparison.objDescription}}</p>
           </div>
-          <div class="outputIconBox" style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
+          <div tagged-infinite-scroll="getMore()" class="outputIconBox" style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
             <div
               class="finalIcon"
               ng-class="{small:'icon-small', medium:'icon-medium', large:'icon-large'}[iconSize]"

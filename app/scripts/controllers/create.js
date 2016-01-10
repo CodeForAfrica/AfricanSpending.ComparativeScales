@@ -205,6 +205,13 @@ angular.module('comparativescalesApp')
       }
     }
 
+    $scope.limit = 100
+    $scope.offset = 100
+    $scope.getMore = function(){
+      $scope.limit = $scope.limit + $scope.offset;
+      console.log($scope.limit)
+    }
+
     $scope.upload = function (files, index) {
         if (files && files.length) {
             for (var i = 0; i < files.length; i++) {
