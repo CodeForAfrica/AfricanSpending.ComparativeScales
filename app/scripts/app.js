@@ -27,7 +27,7 @@ angular
         controller: 'CreateCtrl',
         resolve:{
           currencies: function(apiservice){
-            //return apiservice.getCurrenciesList();
+            return apiservice.getCurrenciesList();
           },
           rates: function(apiservice){
             return apiservice.getCurrenciesRates();

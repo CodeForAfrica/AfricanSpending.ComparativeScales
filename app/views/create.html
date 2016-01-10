@@ -41,6 +41,7 @@
       <h4><span class="step">1</span> insert the number</h4>
     </div>
   </div>
+  <form name="bignumberForm" novalidate>
   <div class="row">
     <div class="col-md-3">
       <div class="form-group">
@@ -81,11 +82,14 @@
             name="description"
             ng-model="description"
             ng-minlength="3"
+            ng-maxlength="100"
             required
           >
         </div>
       </div>
   </div>
+</form>
+<div ng-show="bignumberForm.$valid">
   <div class="row">
     <div class="col-md-12">
       <h4><span class="step">2</span> select a comparison</h4>
@@ -192,6 +196,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 <!-- output mode -->
 <div class="container" ng-if="viewModel == 'output'">
