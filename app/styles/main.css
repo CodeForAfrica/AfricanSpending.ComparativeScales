@@ -3,6 +3,42 @@
 .thumbnail{
   position: relative;
   overflow: hidden;
+  height: 330px;
+}
+
+.thumbnailItem{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.thumbnailAdd{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  border:2px #E0E0E0 dashed;
+}
+
+.thumbnailAdd .caption{
+  text-align: center;
+}
+
+.caption .checkbox{
+  margin: 0px;
+}
+
+.caption.cardDesc{
+  margin-left: -4px;
+  margin-right: -4px;
+  border-top: 1px #E0E0E0 solid;
+}
+
+.thumbnailSelected{
+  border-color: #00C973;
+}
+
+.caption.cardDesc.thumbnailSelected{
+  border-top: 1px #00C973 solid;
 }
 
 .captionHover {
@@ -17,6 +53,9 @@
     color:#fff !important;
     z-index:2;
     transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content:center;
 }
 
 .thumbnail:hover .captionHover {
@@ -36,6 +75,26 @@
     height:100%;
     color:#fff !important;
     z-index:3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.closeDetails{
+  position: absolute;
+  right: 4px;
+  top:8px;
+}
+
+.removeComparison{
+  position: absolute;
+  right: 20px;
+  bottom: 12px;
+}
+
+.svgIconContainer{
+  height: 180px;
+  width:100%;
 }
 
 /* bottom line */
@@ -47,6 +106,12 @@
   z-index: 3;
   transition: bottom 0.2s;
   width: 100%;
+  transform: translate(0,100%);
+  transition: transform 0.2s;
+}
+
+.bottomLineShow{
+  transform: translate(0,0);
 }
 
 /* checkbox round */

@@ -105,7 +105,8 @@ angular.module('comparativescalesApp')
 
       var ids = $scope.comparisons.map(function(d){return d.id});
       $scope.comparisons.splice(ids.indexOf(id),1)
-      $scope.editMode = false;
+      $scope.selectedComparisons.splice($scope.selectedComparisons.indexOf(id),1)
+      //$scope.editMode = false;
 
     }
 

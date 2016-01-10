@@ -93,7 +93,7 @@
   </div>
   <div class="row">
     <div class="col-md-3">
-      <div class="thumbnail">
+      <div class="thumbnail thumbnailAdd">
         <div class="caption">
           <button type="submit" class="btn btn-default" ng-click="open()">
             <span class="glyphicon glyphicon-plus-sign">
@@ -106,41 +106,47 @@
     </div>
     <!-- editor comparisons -->
     <div class="col-md-3" ng-repeat="editorpick in editorpicks | orderBy: '-id' track by editorpick.id">
-      <div class="thumbnail">
+      <div class="thumbnail thumbnailItem" ng-class="{'thumbnailSelected':editorpick.isSelected}">
         <div class="caption captionHover">
           <button type="button" class="btn btn-success" ng-click="editorpick.details = true">
             see details
           </button>
         </div>
         <div class="caption captionDetails" ng-show="editorpick.details" >
-          <span class="pull-right glyphicon glyphicon-remove" ng-click="editorpick.details = false">
+          <span class="closeDetails glyphicon glyphicon-remove" ng-click="editorpick.details = false">
           </span>
-          <label>item cost</label>
-          <p>{{editorpick.objvalue | number}} {{selUnit.selected}}</p>
-          <label>description</label>
-          <p>{{editorpick.objDescription}}</p>
-          <label>source</label>
-          <p>{{editorpick.source}}</p>
-          <label>icon credits</label>
-          <p>{{editorpick.credits}}</p>
+          <div>
+            <label>item cost</label>
+            <p>{{editorpick.objvalue | number}} {{selUnit.selected}}</p>
+          </div>
+          <div>
+            <label>description</label>
+            <p>{{editorpick.objDescription}}</p>
+          </div>
+          <div>
+            <label>source</label>
+            <p>{{editorpick.source}}</p>
+          </div>
+          <div>
+            <label>icon credits</label>
+            <p>{{editorpick.credits}}</p>
+          </div>
         </div>
         <div class="caption">
           <p>
             editors' pick
-          </p>
-          <p>
-            <div class="checkbox checkbox-circle">
+            <span class="checkbox checkbox-success checkbox-circle pull-right">
               <input
                 type="checkbox"
                 class="styled"
                 ng-model="editorpick.isSelected"
                 ng-change="modEditorpicks(editorpick.isSelected, editorpick.id)">
               <label></label>
-            </div>
+            </span>
           </p>
         </div>
         <div class="svgIconContainer" comparison="editorpick" svg-icon></div>
-        <div class="caption">
+        <div class="caption cardDesc" ng-class="{'thumbnailSelected':editorpick.isSelected}">
           <p>
             {{bignumber/editorpick.objvalue | number:0}}
           </p>
@@ -152,30 +158,30 @@
     </div>
     <!-- user comparisons -->
     <div class="col-md-3" ng-repeat="comparison in comparisons | orderBy: '-id' track by comparison.id">
-      <div class="thumbnail">
+      <div class="thumbnail thumbnailItem" ng-class="{'thumbnailSelected':comparison.isSelected}">
         <div class="caption captionHover">
           <button type="button" class="btn btn-success" ng-click="open(comparison)">
             edit
           </button>
-          <span class="glyphicon glyphicon-trash" ng-click="removeComparison(comparison.id)"></span>
+          <button type="button" class="btn btn-default removeComparison" ng-click="removeComparison(comparison.id)">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
         </div>
         <div class="caption">
           <p>
             added by you
-          </p>
-          <p>
-            <div class="checkbox checkbox-circle">
+            <span class="checkbox checkbox-success checkbox-circle pull-right">
               <input
                 type="checkbox"
                 class="styled"
                 ng-model="comparison.isSelected"
                 ng-change="modComparisons(comparison.isSelected, comparison.id)">
               <label></label>
-            </div>
+            </span>
           </p>
         </div>
         <div class="svgIconContainer" comparison="comparison" svg-icon></div>
-        <div class="caption">
+        <div class="caption cardDesc" ng-class="{'thumbnailSelected':comparison.isSelected}">
           <p>
             {{bignumber/comparison.objvalue | number:0}}
           </p>
@@ -310,7 +316,7 @@
   </div>
 </div>
 
-<div class="bottomLine" ng-show="selectedComparisons.length">
+<div class="bottomLine" ng-class="{'bottomLineShow':selectedComparisons.length}">
   <div class="container">
     <div class="row">
       <div class="col-md-3" ng-show="viewModel == 'output'">
