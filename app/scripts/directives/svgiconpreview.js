@@ -24,8 +24,8 @@ angular.module('comparativescalesApp')
 
           var credits = '';
           var texts = svg.selectAll('text')
-            .each(function(d){
-              credits = credits + " " + d3.select(this).text();
+            .each(function(d,i){
+              credits = credits + (i?" ":"") + d3.select(this).text();
             })
 
           scope.comparison.credits = credits?credits:scope.comparison.credits
@@ -45,8 +45,8 @@ angular.module('comparativescalesApp')
             var credits = '';
 
             var texts = svg.selectAll('text')
-              .each(function(d){
-                credits = credits + " " + d3.select(this).text();
+              .each(function(d,i){
+                credits = credits + (i?" ":"") + d3.select(this).text();
               })
 
             scope.comparison.credits = credits?credits:scope.comparison.credits

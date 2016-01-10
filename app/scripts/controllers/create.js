@@ -8,7 +8,7 @@
  * Controller of the comparativescalesApp
  */
 angular.module('comparativescalesApp')
-  .controller('CreateCtrl', function ($scope, $timeout, $http, $location, $uibModal, Upload, currencies, rates, editorpicks) {
+  .controller('CreateCtrl', function ($scope, $timeout, $http, $location, $uibModal, $log, Upload, currencies, rates, editorpicks) {
 
     //edit mode
     $scope.viewModel = 'input';

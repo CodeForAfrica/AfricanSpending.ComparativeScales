@@ -6,7 +6,8 @@
 
 </div>
 <div class="modal-body">
-  <div class="row" style="min-height:300px;">
+  <form name="addIconForm" novalidate>
+  <div class="row">
     <div class="col-md-6">
       <label>how much does the item cost?</label>
       <div class="input-group">
@@ -32,6 +33,7 @@
           name="objDescription"
           ng-model="comparison.objDescription"
           ng-minlength="3"
+          ng-maxlength="100"
           required
         >
       </div>
@@ -44,6 +46,7 @@
           name="source"
           ng-model="comparison.source"
           ng-minlength="3"
+          ng-maxlength="100"
           required
         >
       </div>
@@ -56,7 +59,7 @@
           name="credits"
           ng-model="comparison.credits"
           ng-minlength="3"
-          required
+          ng-maxlength="100"
         >
       </div>
     </div>
@@ -72,13 +75,17 @@
         ngf-drop-available="dropAvailable"
         name="drop"
         class="dropArea"
+        required
        >
-        <div class="svgIconContainer" svg-icon-preview></div>
-        <button type="button" class="btn btn-default" ng-show="!comparison.icon">Upload icon (.svg)</button>
+       <div>
+         <div ng-show="comparison.icon" class="svgIconContainer" svg-icon-preview></div>
+         <button type="button" class="btn btn-default" ng-show="!comparison.icon">Upload icon (.svg)</button>
+      </div>
       </div>
     </div>
   </div>
+</form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ok()">save</button>
+    <button class="btn btn-success" type="button" ng-click="ok()" ng-disabled="addIconForm.$invalid || !comparison.icon">save</button>
 </div>

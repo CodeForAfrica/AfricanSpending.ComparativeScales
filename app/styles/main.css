@@ -114,6 +114,18 @@
   transform: translate(0,0);
 }
 
+/* add comparison form */
+
+.dropArea{
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-footer{
+  text-align: left;
+}
 /* checkbox round */
 
 .checkbox {
