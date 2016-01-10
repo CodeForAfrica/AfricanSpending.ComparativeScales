@@ -126,7 +126,7 @@
           </span>
           <div>
             <label>item cost</label>
-            <p>{{editorpick.objvalue | number}} {{selUnit.selected}}</p>
+            <p>{{(editorpick.objvalue*rates.rates[selUnit.selected]) | number}} {{selUnit.selected}}</p>
           </div>
           <div>
             <label>description</label>
@@ -157,7 +157,7 @@
         <div class="svgIconContainer" comparison="editorpick" svg-icon></div>
         <div class="caption cardDesc" ng-class="{'thumbnailSelected':editorpick.isSelected}">
           <p>
-            {{bignumber/editorpick.objvalue | number:0}}
+            {{bignumber/(editorpick.objvalue*rates.rates[selUnit.selected]) | number:0}}
           </p>
           <p>
             {{editorpick.objDescription}}

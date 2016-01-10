@@ -33,6 +33,9 @@
       <div>
         <h6>SOURCE: {{comparison.source}}</a></h6>
         <h6>CREDITS: {{comparison.credits}}</h6>
+        <p ng-if="config.selUnit != 'USD'">
+            on {{config.changeRate.date*1000 || rates.timestamp*1000 | date}}, 1 USD was {{config.changeRate.rate || rates.rates[selUnit.selected] | number:2}} {{config.selUnit || selUnit.selected}}
+        </p>
       </div>
     </div>
 </div>

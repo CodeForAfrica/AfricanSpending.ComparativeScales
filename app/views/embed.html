@@ -60,7 +60,7 @@
         <h6>SOURCE: {{comparison.source}}</h6>
         <h6>CREDITS: {{comparison.credits}}</h6>
         <p ng-if="config.selUnit != 'USD'">
-          on {{config.changeRate.date | date}}, 1 {{config.selUnit}} was {{config.changeRate.rate}} USD
+            on {{config.changeRate.date*1000 | date}}, 1 USD was {{config.changeRate.rate| number:2}} {{selUnit.selected}}
         </p>
       </div>
     </div>
