@@ -126,6 +126,76 @@
 .modal-footer{
   text-align: left;
 }
+
+/* output */
+
+.outputIconBox{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+.icon-small{
+  width: 50px;
+  height: 50px;
+}
+
+.icon-medium{
+  width: 100px;
+  height: 100px;
+}
+
+.icon-large{
+  width: 150px;
+  height: 150px;
+}
+
+
+.output.light{
+  background-color: #fff;
+  color: #4A4A4A;
+}
+
+.output.light svg *{
+  fill: #4A4A4A;
+}
+
+.output.dark{
+  background-color: #4A4A4A;
+  color: #fff;
+}
+
+.output.dark p,
+.output.dark h2,
+.output.dark h6
+{
+  color: #fff;
+}
+
+.output.dark svg *{
+  fill: #fff;
+}
+
+.tabList li.active{
+  background: gray;
+}
+
+#output.moop{
+  font-family: 'Montserrat', serif;
+}
+
+#output.moop h2, #output.moop h6{
+  font-family: 'Open Sans', sans-serif;
+}
+
+#output.tica{
+  font-family: Times, serif;
+}
+
+#output.tica h2, #output.tica h6{
+  font-family: Arial, sans-serif;
+}
+
 /* checkbox round */
 
 .checkbox {

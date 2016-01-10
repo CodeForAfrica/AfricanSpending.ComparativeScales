@@ -16,6 +16,7 @@ angular.module('comparativescalesApp')
     $scope.editorpicks.forEach(function(d){
       d.isEditorpick = true;
     })
+    $scope.rates = rates;
 
     //source comparison values
     $scope.currencies = currencies;
@@ -51,8 +52,7 @@ angular.module('comparativescalesApp')
     $scope.savinggist = false;
     $scope.fontsList = [
       {label:'Montserrat/Open', slug:'moop'},
-      {label:'Tizio/Caio', slug:'tica'},
-      {label:'Gino/Pinotto', slug:'gipi'}
+      {label:'Tizio/Caio', slug:'tica'}
     ];
     $scope.selectedFonts = $scope.fontsList[0].slug;
     $scope.iconsSize = ['small', 'medium', 'large'];

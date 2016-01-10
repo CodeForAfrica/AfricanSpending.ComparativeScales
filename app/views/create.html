@@ -70,6 +70,11 @@
         </ui-select>
       </div>
     </div>
+    <div class="col-md-6">
+      <p ng-if="selUnit.selected!='USD'">
+        on {{rates.timestamp*1000 | date}}, 1 USD was {{rates.rates[selUnit.selected]| number:2}} {{selUnit.selected}}
+      </p>
+    </div>
     </div>
     <div class="row">
       <div class="col-md-12">
@@ -247,7 +252,7 @@
         <textarea readonly class="form-control" rows="8" ng-model="embedCode"></textarea>
       </div>
     </div>
-    <div id="output"class="col-md-8" ng-class="{moop:'moop', tica:'tica', gipi:'gipi'}[selectedFonts]">
+    <div id="output"class="col-md-8" ng-class="{moop:'moop', tica:'tica'}[selectedFonts]">
       <div
         style="overflow-y:scroll;"
         ng-style="{'height': iframeheight+'px', 'width':boxwidth+'px'}"
@@ -300,7 +305,7 @@
             <h2>{{bignumber/comparison.objvalue | number:0}}</h2>
             <p>{{comparison.objDescription}}</p>
           </div>
-          <div style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
+          <div class="outputIconBox" style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
             <div
               class="finalIcon"
               ng-class="{small:'icon-small', medium:'icon-medium', large:'icon-large'}[iconSize]"
@@ -311,7 +316,7 @@
             </div>
           </div>
           <div>
-            <h6>SOURCE: <a ng-href="{{comparison.source}}" target="_blank">{{comparison.source}}</a></h6>
+            <h6>SOURCE: {{comparison.source}}</h6>
             <h6>CREDITS: {{comparison.credits}}</h6>
           </div>
         </div>

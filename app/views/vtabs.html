@@ -1,4 +1,4 @@
-<ul class="nav nav-pills nav-stacked col-xs-3">
+<ul class="tabList nav nav-pills nav-stacked col-xs-3">
     <li>
       costs like
     </li>
@@ -7,7 +7,7 @@
       ng-class="tabActive==comparison.id?'active':''"
       ng-repeat="comparison in total">
 
-        <h3>{{comparison.objvalue}}</h3>
+        <h3>{{comparison.itemsNumber || bignumber/comparison.objvalue | number:0}}</h3>
         <p>
           {{comparison.objDescription}}
         </p>
@@ -20,7 +20,7 @@
       ng-repeat="comparison in total"
       class="tab-pane"
       >
-      <div style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
+      <div class="outputIconBox" style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
         <div
           class="finalIcon"
           ng-class="{small:'icon-small', medium:'icon-medium', large:'icon-large'}[iconSize]"
@@ -31,7 +31,7 @@
         </div>
       </div>
       <div>
-        <h6>SOURCE: <a ng-href="{{comparison.source}}" target="_blank">{{comparison.source}}</a></h6>
+        <h6>SOURCE: {{comparison.source}}</a></h6>
         <h6>CREDITS: {{comparison.credits}}</h6>
       </div>
     </div>
