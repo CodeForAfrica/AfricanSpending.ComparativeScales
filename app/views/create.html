@@ -252,6 +252,7 @@
         <textarea readonly class="form-control" rows="8" ng-model="embedCode"></textarea>
       </div>
     </div>
+   
     <div id="output"class="col-md-8" ng-class="{moop:'moop', tica:'tica'}[selectedFonts]">
       <div
         style="overflow-y:scroll;"
@@ -290,9 +291,9 @@
         </tab>
       </tabset> -->
       <div class="row">
-        <div class="col-md-12" ng-if="layout == 'columns'">
+        <div class="col-md-12 costLikeCol" ng-if="layout == 'columns'">
           <p>
-            costs like
+            Costs like
           </p>
         </div>
       </div>
@@ -300,8 +301,9 @@
         <div
           ng-repeat="comparison in filtered = (comparisons.concat(editorpicks) | filter: {isSelected:true})"
           ng-class="'col-xs-'+(12/filtered.length)"
+          class="columns"
           >
-          <div>
+          <div class="columnsInner">
             <h2>{{bignumber/comparison.objvalue | number:0}}</h2>
             <p>{{comparison.objDescription}}</p>
           </div>

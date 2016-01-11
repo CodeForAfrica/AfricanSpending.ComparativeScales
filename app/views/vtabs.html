@@ -1,20 +1,22 @@
-<ul class="tabList nav nav-pills nav-stacked col-xs-3">
-    <li>
-      costs like
+<ul class="tabList nav nav-pills nav-stacked col-xs-4">
+    <li class="costLike">
+    <p>
+      Costs like
+    </p>
     </li>
-    <li
+    <li class="comparisonButton"
       ng-click="tabSwitch(comparison.id)"
       ng-class="tabActive==comparison.id?'active':''"
       ng-repeat="comparison in total">
 
-        <h3>{{comparison.itemsNumber || bignumber/comparison.objvalue | number:0}}</h3>
+        <h2>{{comparison.itemsNumber || bignumber/comparison.objvalue | number:0}}</h2>
         <p>
           {{comparison.objDescription}}
         </p>
       </a>
     </li>
 </ul>
-<div class="tab-content col-xs-9">
+<div class="tab-content col-xs-8">
     <div
     ng-class="tabActive==comparison.id?'active':''"
       ng-repeat="comparison in total"
