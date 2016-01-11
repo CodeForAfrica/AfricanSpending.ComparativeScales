@@ -8,7 +8,7 @@
 <div class="modal-body">
   <form name="addIconForm" novalidate>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 customBox">
       <label>how much does the item cost?</label>
       <div class="input-group">
         <input
@@ -24,7 +24,7 @@
         >
         <span class="input-group-addon">{{selUnit}}</span>
       </div>
-      <div class="form-group">
+      <div class="form-group customBox">
         <label>what is it?</label>
         <input
           type="text"
@@ -37,7 +37,7 @@
           required
         >
       </div>
-      <div class="form-group">
+      <div class="form-group customBox">
         <label>source of the information</label>
         <input
           type="text"
@@ -50,7 +50,7 @@
           required
         >
       </div>
-      <div class="form-group">
+      <div class="form-group customBox">
         <label>credit of the icon</label>
         <input
           type="text"
@@ -79,7 +79,7 @@
        >
        <div>
          <div ng-show="comparison.icon" class="svgIconContainer" svg-icon-preview></div>
-         <button type="button" class="btn btn-default" ng-show="!comparison.icon">Upload icon (.svg)</button>
+         <button type="btnCustom button" class="btn btn-default" ng-show="!comparison.icon">Upload icon (.svg)</button>
       </div>
       </div>
     </div>
@@ -87,5 +87,5 @@
 </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-success" type="button" ng-click="ok()" ng-disabled="addIconForm.$invalid || !comparison.icon">save</button>
+    <button class="btnCustom btn btn-success" type="button" ng-click="ok()" ng-disabled="addIconForm.$invalid || !comparison.icon">save</button>
 </div>

@@ -7,7 +7,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Lira</a>
+        <a class="navbar-brand" href="#">Libra</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <!-- <ul class="nav navbar-nav">
@@ -44,11 +44,11 @@
   <form name="bignumberForm" novalidate>
   <div class="row">
     <div class="col-md-3">
-      <div class="form-group">
+      <div class="form-group input-group-lg customBox">
         <label>big number</label>
         <input
           type="number"
-          placeholder="the big number"
+          placeholder="Add an amount"
           class="form-control"
           name="bignumber"
           ng-model="bignumber"
@@ -58,7 +58,7 @@
       </div>
     </div>
     <div class="col-md-2">
-      <div class="form-group">
+      <div class="form-group customBox">
         <label>unit</label>
         <ui-select ng-model="selUnit.selected" required>
           <ui-select-match placeholder="Select">
@@ -78,11 +78,11 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div class="form-group">
+        <div class="form-group input-group-lg customBox">
           <label>description</label>
           <input
             type="text"
-            placeholder="enter a description"
+            placeholder="Add a description of the amount"
             class="form-control description"
             name="description"
             ng-model="description"
@@ -95,7 +95,7 @@
   </div>
 </form>
 <div ng-show="bignumberForm.$valid">
-  <div class="row">
+  <div class="row step2">
     <div class="col-md-12">
       <h4><span class="step">2</span> select a comparison</h4>
     </div>
@@ -105,7 +105,7 @@
       <div class="thumbnail thumbnailAdd">
         <div class="caption">
           <button type="submit" class="btn btn-default" ng-click="open()">
-            <span class="glyphicon glyphicon-plus-sign">
+            <span class="glyphicon glyphicon-plus">
           </button>
           <p>
             add a new comparison
@@ -117,7 +117,7 @@
     <div class="col-md-3" ng-repeat="editorpick in editorpicks | orderBy: '-id' track by editorpick.id">
       <div class="thumbnail thumbnailItem" ng-class="{'thumbnailSelected':editorpick.isSelected}">
         <div class="caption captionHover">
-          <button type="button" class="btn btn-success" ng-click="editorpick.details = true">
+          <button type="button" class="btnCustom btn btn-success" ng-click="editorpick.details = true">
             see details
           </button>
         </div>
@@ -142,7 +142,7 @@
           </div>
         </div>
         <div class="caption">
-          <p>
+          <p class="editorsLabel">
             editors' pick
             <span class="checkbox checkbox-success checkbox-circle pull-right">
               <input
@@ -156,10 +156,10 @@
         </div>
         <div class="svgIconContainer" comparison="editorpick" svg-icon></div>
         <div class="caption cardDesc" ng-class="{'thumbnailSelected':editorpick.isSelected}">
-          <p>
+          <p class="numberItems">
             {{bignumber/(editorpick.objvalue*rates.rates[selUnit.selected]) | number:0}}
           </p>
-          <p>
+          <p class="infoItems">
             {{editorpick.objDescription}}
           </p>
         </div>
@@ -169,7 +169,7 @@
     <div class="col-md-3" ng-repeat="comparison in comparisons | orderBy: '-id' track by comparison.id">
       <div class="thumbnail thumbnailItem" ng-class="{'thumbnailSelected':comparison.isSelected}">
         <div class="caption captionHover">
-          <button type="button" class="btn btn-success" ng-click="open(comparison)">
+          <button type="button" class="btnCustom btn btn-success" ng-click="open(comparison)">
             edit
           </button>
           <button type="button" class="btn btn-default removeComparison" ng-click="removeComparison(comparison.id)">
@@ -207,43 +207,43 @@
 <div class="container" ng-if="viewModel == 'output'">
   <div class="row">
     <div class="col-md-4">
-      <div class="form-group">
+      <div class="form-group customBox">
         <label>width</label>
         <input placeholder="box width" class="form-control" name="boxwidth" ng-model="boxwidth" min="1" required>
       </div>
-      <div class="form-group">
+      <div class="form-group customBox">
         <label>height iframe</label>
         <input type="number" placeholder="height" class="form-control" name="iframeheight" ng-model="iframeheight" min="1" required>
       </div>
-      <div class="form-group">
+      <div class="form-group customBox">
         <label>height icons box</label>
         <input type="number" placeholder="box height" class="form-control" name="boxheight" ng-model="boxheight" min="1" required>
       </div>
-      <div class="form-group">
+      <div class="form-group customBox">
         <label>layout</label>
         <select class="form-control" ng-model="layout">
           <option ng-repeat="layout in layouts" value="{{layout}}">{{layout}}</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group customBox">
         <label>fonts</label>
         <select class="form-control" ng-model="selectedFonts">
           <option ng-repeat="fontList in fontsList" value="{{fontList.slug}}">{{fontList.label}}</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group customBox">
         <label>icon size</label>
         <select class="form-control" ng-model="iconSize">
           <option ng-repeat="iconsize in iconsSize">{{iconsize}}</option>
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group customBox">
         <label>style</label>
         <select class="form-control" ng-model="iconStyle">
           <option ng-repeat="iconstyle in iconsStyle">{{iconstyle}}</option>
         </select>
       </div>
-      <button type="button" class="btn btn-success" ng-click="publishGist()">
+      <button type="button" class="btn btn-success btnCustom" ng-click="publishGist()">
         embed
       </button>
       <p ng-show="savinggist" class="panelFade"> saving to Gist...</p>
@@ -330,7 +330,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3" ng-show="viewModel == 'output'">
-        <button type="button" class="btn btn-success" ng-show="viewModel == 'output'" ng-click="viewModel = 'input'">
+        <button type="button" class="btnCustom btn btn-success" ng-show="viewModel == 'output'" ng-click="viewModel = 'input'">
           back to edit
         </button>
       </div>
@@ -340,7 +340,7 @@
         </p>
       </div>
       <div class="col-md-3">
-        <button type="button" class="btn btn-success" ng-show="viewModel == 'input'" ng-click="viewModel = 'output'">
+        <button type="button" class="btnCustom btn btn-success" ng-show="viewModel == 'input'" ng-click="viewModel = 'output'">
           visualize and export
         </button>
       </div>
