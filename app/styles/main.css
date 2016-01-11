@@ -1,5 +1,185 @@
-/*comparison card*/
+/* general */
+body {
+  padding: 0;
+  background-color: #F3F3F3;
+  font-family: 'Montserrat', sans-serif;
+  color: #4A4A4A;
+  padding-bottom: 100px;
+}
 
+.step2{
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+/*UI General*/
+.btnCustom{
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  padding: 15px 30px;
+  border-radius: 9px;
+}
+
+.btn-success {
+background: #00C973;
+color: #fff;
+border:none;
+}
+
+.btn-success:hover {
+background: #09B36A;
+}
+
+/*navbar*/
+.navbar {
+background: #FFFFFF;
+border: 1px solid #E6E6E6;
+}
+
+.navbar-brand{
+font-family: 'Montserrat', sans-serif;
+font-size: 24px;
+color: #4A4A4A;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+/* typography */
+h2 {
+font-weight: 700;
+font-family: 'Montserrat', sans-serif;
+font-size: 34px;
+color: #4A4A4A;
+letter-spacing: 1px;
+line-height: 34px;
+text-transform: uppercase;
+}
+
+.output p {
+  font-weight: 400;
+font-size: 14px;
+letter-spacing: 0px;
+line-height: 22px;
+text-transform: none;
+}
+
+h6 {
+    font-weight: 400;
+font-family: 'Open Sans', sans-serif;
+font-size: 12px;
+color: #4A4A4A;
+letter-spacing: 0px;
+line-height: 15px;
+text-transform: none;
+}
+
+h4 {
+font-weight: 700;
+font-family: 'Montserrat', sans-serif;
+font-size: 14px;
+color: #4A4A4A;
+letter-spacing: 1px;
+line-height: 34px;
+text-transform: uppercase;
+}
+
+span.step {
+  background: #4A4A4A;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6em;
+  margin-right: 5px;
+  text-align: center;
+  width: 1.6em;
+}
+
+/*forms*/
+.form-group {
+  background: #FFFFFF;
+  border-radius: 3px;
+}
+
+.customBox label {
+font-weight: 700;
+font-family: 'Montserrat', sans-serif;
+text-transform: uppercase;
+font-size: 12px;
+color: #828181;
+letter-spacing: 1px;
+line-height: 15px;
+padding-left: 16px;
+padding-top: 10px;
+}
+
+.customBox input{
+border: none;
+box-shadow:none;
+font-family: 'Montserrat', sans-serif;
+font-size: 18px!important;
+}
+
+.form-control:focus {
+    border:none;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #000;
+}
+
+.customBox .btn-default {
+  height: 46px;
+  padding-top: 7px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  border: none;
+  box-shadow:none;
+}
+
+.customBox select {
+  padding-top: 0px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  border: none;
+  box-shadow:none;
+  margin-left: 5px;
+  width: 95%;
+}
+
+.customBox option {
+  padding-left: 15px;
+}
+
+.customBox .btn-default:hover {
+  background-color: #fff;
+}
+
+.customBox input::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #ECECEC;
+}
+.customBox input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #ECECEC;
+}
+.customBox input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #ECECEC;
+}
+.customBox input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #ECECEC;
+}
+
+.customBox .input-group-addon {
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    border: none;
+}
+
+/*comparison card*/
 .thumbnail{
   position: relative;
   overflow: hidden;
@@ -10,6 +190,30 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+}
+
+.editorsLabel{
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cardDesc {
+  text-align: center;
+}
+
+.cardDesc .numberItems {
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+}
+
+.infoItems::first-letter {
+  text-transform: uppercase;
 }
 
 .thumbnailAdd{
@@ -17,6 +221,33 @@
   align-items: center;
   justify-content:center;
   border:2px #E0E0E0 dashed;
+  background-color: transparent;
+}
+
+.thumbnailAdd .btn-default {
+background: #D8D8D8;
+border-radius: 22px;
+height: 82px;
+width: 82px;
+border:none;
+}
+
+.thumbnailAdd .btn-default:hover {
+background: #B7B7B7;
+border-radius: 22px;
+height: 82px;
+width: 82px;
+border:none;
+}
+
+.thumbnailAdd p {
+font-family: 'Montserrat', sans-serif;
+font-size: 12px;
+color: #9B9B9B;
+letter-spacing: 1px;
+line-height: 15px;
+text-transform: uppercase;
+padding-top: 20px;
 }
 
 .thumbnailAdd .caption{
@@ -58,6 +289,10 @@
     justify-content:center;
 }
 
+.captionHover {
+  
+}
+
 .thumbnail:hover .captionHover {
     opacity: 1;
 }
@@ -82,9 +317,20 @@
 
 .closeDetails{
   position: absolute;
-  right: 4px;
-  top:8px;
+  right: 10px;
+  top:12px;
 }
+
+.captionDetails label{
+font-weight: 700;
+font-family: 'Montserrat', sans-serif;
+text-transform: uppercase;
+font-size: 12px;
+color: #828181;
+letter-spacing: 1px;
+line-height: 15px;
+}
+
 
 .removeComparison{
   position: absolute;
@@ -108,6 +354,12 @@
   width: 100%;
   transform: translate(0,100%);
   transition: transform 0.2s;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.bottomLine p{
+  padding-top: 15px;
 }
 
 .bottomLineShow{
@@ -312,3 +564,6 @@ input[type="checkbox"] .styled:checked + label::before{
 input[type="checkbox"] .styled:checked + label::after{
   color: #fff;
 }
+
+
+
