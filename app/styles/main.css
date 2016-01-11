@@ -52,7 +52,6 @@ h2 {
 font-weight: 700;
 font-family: 'Montserrat', sans-serif;
 font-size: 34px;
-color: #4A4A4A;
 letter-spacing: 1px;
 line-height: 34px;
 text-transform: uppercase;
@@ -117,7 +116,6 @@ line-height: 15px;
 padding-left: 16px;
 padding-top: 10px;
 }
-
 .customBox input{
 border: none;
 box-shadow:none;
@@ -173,10 +171,26 @@ font-size: 18px!important;
     color:    #ECECEC;
 }
 
+.panelFade label {
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+.customBox label {
+font-weight: 700;
+font-family: 'Montserrat', sans-serif;
+text-transform: uppercase;
+font-size: 12px;
+color: #828181;
+letter-spacing: 1px;
+line-height: 15px;
+padding-left: 16px;
+padding-top: 10px;
+}
+
 .customBox .input-group-addon {
-    font-family: 'Montserrat', sans-serif;
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
 }
 
 .change{
@@ -385,6 +399,16 @@ line-height: 15px;
 }
 
 /* output */
+.big-number-output {
+  border-bottom: 1px solid #E8E8E8;
+  padding-left: 20px;
+}
+
+.big-number-output p{
+font-size: 20px;
+color: #4A4A4A;
+line-height: 27px;
+}
 
 .outputIconBox{
   display: flex;
@@ -407,6 +431,17 @@ line-height: 15px;
   height: 150px;
 }
 
+.output {
+border: 1px solid #E8E8E8;
+}
+
+.output ul {
+  padding-right: 0;
+}
+
+.output li {
+  padding-left: 20px;
+}
 
 .output.light{
   background-color: #fff;
@@ -433,17 +468,91 @@ line-height: 15px;
   fill: #fff;
 }
 
-.tabList li.active{
-  background: gray;
+.output .costLike{
+  background-color: #4A4A4A;
+  margin-bottom: 0;
+  cursor: default;
 }
 
+.output .costLike p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.output .costLikeCol{
+  background-color: #4A4A4A;
+  margin-bottom: 0;
+  cursor: default;
+}
+
+.output .costLikeCol p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 0;
+  color: #fff;
+  padding-left: 20px;
+}
+
+.output .nav-stacked > li + li {
+    margin-top: 0px;
+    margin-left: 0;
+    min-height: 120px;
+    padding-top: 10px;
+}
+
+.output .tab-content{
+  border-left:1px solid #E8E8E8;
+}
+
+.output .tabList li{
+  border-right:1px solid #E8E8E8;
+  border-bottom: 1px solid #E8E8E8;
+}
+.output .tabList li {
+  cursor: pointer;
+  color:#BAB9BA
+
+}
+
+.output .tabList li.active{
+color:#4A4A4A;
+}
+
+.output .tabList p::first-letter {
+  text-transform: uppercase;
+}
+
+.output .columnsInner {
+  padding-left: 20px;
+}
+
+.output .columnsInner p::first-letter{
+  text-transform: uppercase;
+}
+
+.output .columns {
+  border-right:1px solid #E8E8E8;
+}
+
+.output .columns h6{
+  padding-left: 20px;
+}
+
+.output .tabList h3{
+  margin-top: 0;
+}
+
+
 #output.moop{
-  font-family: 'Montserrat', serif;
+  font-family: 'Open Sans', serif;
 }
 
 #output.moop h2, #output.moop h6{
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
+
 
 #output.tica{
   font-family: Times, serif;
@@ -452,6 +561,8 @@ line-height: 15px;
 #output.tica h2, #output.tica h6{
   font-family: Arial, sans-serif;
 }
+
+
 
 /* checkbox round */
 
