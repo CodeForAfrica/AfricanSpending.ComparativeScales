@@ -20,13 +20,13 @@
       ng-repeat="comparison in total"
       class="tab-pane"
       >
-      <div tagged-infinite-scroll="getMore()" class="outputIconBox" style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
+      <div buffered-scroll="increaseLimit()" class="outputIconBox" style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
         <div
           class="finalIcon"
           ng-class="{small:'icon-small', medium:'icon-medium', large:'icon-large'}[iconSize]"
           iconstyle="light"
           comparison="comparison"
-          ng-repeat="i in getNumber(bignumber/comparison.objvalue, comparison.itemsNumber) track by $index"
+          ng-repeat="i in getNumber(bignumber/comparison.objvalue, comparison.itemsNumber) | limitTo:limit track by $index"
           svg-icon>
         </div>
       </div>

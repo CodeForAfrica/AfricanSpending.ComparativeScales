@@ -206,11 +206,13 @@ angular.module('comparativescalesApp')
     }
 
     $scope.limit = 100
-    $scope.offset = 100
-    $scope.getMore = function(){
-      $scope.limit = $scope.limit + $scope.offset;
-      console.log($scope.limit)
-    }
+    //$scope.offset = 100
+    $scope.increaseLimit = function () {
+      //if ($scope.limit < $scope.items.length) {
+        $scope.limit += 100;
+        console.log($scope.limit)
+      //}
+    };
 
     $scope.upload = function (files, index) {
         if (files && files.length) {

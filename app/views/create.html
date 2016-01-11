@@ -305,13 +305,13 @@
             <h2>{{bignumber/comparison.objvalue | number:0}}</h2>
             <p>{{comparison.objDescription}}</p>
           </div>
-          <div tagged-infinite-scroll="getMore()" class="outputIconBox" style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
+          <div buffered-scroll="increaseLimit()" class="outputIconBox" style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
             <div
               class="finalIcon"
               ng-class="{small:'icon-small', medium:'icon-medium', large:'icon-large'}[iconSize]"
               iconstyle="light"
               comparison="comparison"
-              ng-repeat="i in getNumber(bignumber/comparison.objvalue) track by $index"
+              ng-repeat="i in getNumber(bignumber/comparison.objvalue) | limitTo: limit track by $index"
               svg-icon>
             </div>
           </div>
