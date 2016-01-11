@@ -71,7 +71,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <p ng-if="selUnit.selected!='USD'">
+      <p ng-if="selUnit.selected!='USD'" class="change">
         on {{rates.timestamp*1000 | date}}, 1 USD was {{rates.rates[selUnit.selected]| number:2}} {{selUnit.selected}}
       </p>
     </div>
@@ -234,21 +234,24 @@
       <div class="form-group customBox">
         <label>icon size</label>
         <select class="form-control" ng-model="iconSize">
-          <option ng-repeat="iconsize in iconsSize">{{iconsize}}</option>
+          <option value="small">small</option>
+          <option selected="" value="medium">medium</option>
+          <option value="large">large</option>
         </select>
       </div>
       <div class="form-group customBox">
         <label>style</label>
         <select class="form-control" ng-model="iconStyle">
-          <option ng-repeat="iconstyle in iconsStyle">{{iconstyle}}</option>
+          <option selected="" value="light">light</option>
+          <option selected="" value="dark">dark</option>
         </select>
       </div>
       <button type="button" class="btn btn-success btnCustom" ng-click="publishGist()">
         embed
       </button>
       <p ng-show="savinggist" class="panelFade"> saving to Gist...</p>
-      <div ng-show="gistId" class="panelFade">
-        <label>copy embed code </label>
+      <div ng-show="gistId" class="panelFade codeEmbed">
+        <label>Embed the code into your website</label>
         <textarea readonly class="form-control" rows="8" ng-model="embedCode"></textarea>
       </div>
     </div>
@@ -330,7 +333,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3" ng-show="viewModel == 'output'">
-        <button type="button" class="btnCustom btn btn-success" ng-show="viewModel == 'output'" ng-click="viewModel = 'input'">
+        <button type="button" class="btnCustom btn btn-success" ng-show="viewModel == 'output'" ng-click="backtoedit()">
           back to edit
         </button>
       </div>

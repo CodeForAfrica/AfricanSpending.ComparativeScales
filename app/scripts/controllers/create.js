@@ -51,8 +51,8 @@ angular.module('comparativescalesApp')
     $scope.credits;
     $scope.savinggist = false;
     $scope.fontsList = [
-      {label:'Montserrat/Open', slug:'moop'},
-      {label:'Tizio/Caio', slug:'tica'}
+      {label:'Montserrat/Open Sans', slug:'moop'},
+      {label:'Font1/Font2', slug:'tica'}
     ];
     $scope.selectedFonts = $scope.fontsList[0].slug;
     $scope.iconsSize = ['small', 'medium', 'large'];
@@ -139,6 +139,11 @@ angular.module('comparativescalesApp')
           return d.id == id;
         })[0].isSelected = false;
       }
+    }
+
+    $scope.backtoedit = function(){
+      $scope.viewModel = 'input'
+      $scope.gistId = null;
     }
 
     $scope.open = function (comparison) {

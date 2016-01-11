@@ -179,6 +179,11 @@ font-size: 18px!important;
     border: none;
 }
 
+.change{
+  margin-top: 40px;
+  color: #ccc;
+}
+
 /*comparison card*/
 .thumbnail{
   position: relative;
@@ -290,7 +295,7 @@ padding-top: 20px;
 }
 
 .captionHover {
-  
+
 }
 
 .thumbnail:hover .captionHover {
@@ -564,6 +569,3 @@ input[type="checkbox"] .styled:checked + label::before{
 input[type="checkbox"] .styled:checked + label::after{
   color: #fff;
 }
-
-
-
