@@ -13,7 +13,8 @@ angular.module('comparativescalesApp')
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
         if(scope.config){
-          scope.total = scope.config.comparisons
+          scope.total = scope.config.comparisons;
+          scope.selUnit = {selected:scope.config.selUnit};
         }else{
           scope.total = scope.comparisons.concat(scope.editorpicks).filter(function(d){return d.isSelected})
         }

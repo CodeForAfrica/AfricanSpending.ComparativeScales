@@ -11,6 +11,7 @@ angular.module('comparativescalesApp')
   .controller('EmbedCtrl', function ($scope, config, $location) {
 
       $scope.config = config;
+        console.log($scope.config.selUnit)
       $scope.params = $location.search();
       $scope.boxheight = $scope.params.boxheight;
       $scope.iconSize = $scope.params.size;

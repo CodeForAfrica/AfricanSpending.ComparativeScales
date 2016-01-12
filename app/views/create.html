@@ -191,10 +191,10 @@
         </div>
         <div class="svgIconContainer" comparison="comparison" svg-icon></div>
         <div class="caption cardDesc" ng-class="{'thumbnailSelected':comparison.isSelected}">
-          <p>
+          <p class="numberItems">
             {{bignumber/comparison.objvalue | number:0}}
           </p>
-          <p>
+          <p class="infoItems">
             {{comparison.objDescription}}
           </p>
         </div>
@@ -255,7 +255,7 @@
         <textarea readonly class="form-control" rows="8" ng-model="embedCode"></textarea>
       </div>
     </div>
-   
+
     <div id="output"class="col-md-8" ng-class="{moop:'moop', tica:'tica'}[selectedFonts]">
       <div
         style="overflow-y:scroll;"

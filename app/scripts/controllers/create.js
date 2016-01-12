@@ -215,7 +215,7 @@ angular.module('comparativescalesApp')
     $scope.increaseLimit = function () {
       //if ($scope.limit < $scope.items.length) {
         $scope.limit += 100;
-        console.log($scope.limit)
+        
       //}
     };
 
