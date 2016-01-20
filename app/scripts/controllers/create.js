@@ -17,6 +17,7 @@ angular.module('comparativescalesApp')
       d.isEditorpick = true;
     })
     $scope.rates = rates;
+    $scope.comparisonSearch;
 
     //source comparison values
     $scope.currencies = currencies;
@@ -215,7 +216,7 @@ angular.module('comparativescalesApp')
     $scope.increaseLimit = function () {
       //if ($scope.limit < $scope.items.length) {
         $scope.limit += 100;
-        
+
       //}
     };
 

@@ -96,8 +96,19 @@
 </form>
 <div ng-show="bignumberForm.$valid">
   <div class="row step2">
-    <div class="col-md-12">
+    <div class="col-md-9">
       <h4><span class="step">2</span> select a comparison</h4>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group input-group-lg customBox">
+        <input
+          type="text"
+          class="form-control description"
+          placeholder="Search comparison"
+          ng-minlength="2"
+          ng-model-options="{ debounce: 250 }"
+          ng-model="comparisonSearch">
+      </div>
     </div>
   </div>
   <div class="row">
@@ -114,7 +125,7 @@
       </div>
     </div>
     <!-- editor comparisons -->
-    <div class="col-md-3" ng-repeat="editorpick in editorpicks | orderBy: '-id' track by editorpick.id">
+    <div class="col-md-3" ng-repeat="editorpick in editorpicks | filter: {objDescription: comparisonSearch} | orderBy: '-id' track by editorpick.id">
       <div class="thumbnail thumbnailItem" ng-class="{'thumbnailSelected':editorpick.isSelected}">
         <div class="caption captionHover">
           <button type="button" class="btnCustom btn btn-success" ng-click="editorpick.details = true">
@@ -166,7 +177,7 @@
       </div>
     </div>
     <!-- user comparisons -->
-    <div class="col-md-3" ng-repeat="comparison in comparisons | orderBy: '-id' track by comparison.id">
+    <div class="col-md-3" ng-repeat="comparison in comparisons | filter: {objDescription: comparisonSearch} | orderBy: '-id' track by comparison.id">
       <div class="thumbnail thumbnailItem" ng-class="{'thumbnailSelected':comparison.isSelected}">
         <div class="caption captionHover">
           <button type="button" class="btnCustom btn btn-success" ng-click="open(comparison)">
