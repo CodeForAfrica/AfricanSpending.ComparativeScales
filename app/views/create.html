@@ -193,10 +193,11 @@
           <p class="editorsLabel">
             editors' pick
             <span class="checkbox checkbox-success checkbox-circle pull-right">
+              <!-- ng-disabled="bignumber/editorpick.objvalue*rates.rates[selUnit.selected]<1?true:false -->
               <input
                 type="checkbox"
                 class="styled"
-                ng-disabled="bignumber/editorpick.objvalue*rates.rates[selUnit.selected]<1?true:false"
+                ng-disabled="disableComparison(editorpick)"
                 ng-model="editorpick.isSelected"
                 ng-change="modEditorpicks(editorpick.isSelected, editorpick.id)">
               <label></label>

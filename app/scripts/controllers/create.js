@@ -80,6 +80,22 @@ angular.module('comparativescalesApp')
       layout: $scope.layout
     }
 
+    $scope.disableComparison = function(comparison){
+      var dis = $scope.bignumber/comparison.objvalue*$scope.rates.rates[$scope.selUnit.selected]<1?true:false
+      if(dis){
+        comparison.isSelected = false;
+        var inSelected = $scope.selectedComparisons.filter(function(d){
+          return d == comparison.id;
+        })
+
+        if(inSelected.length){
+          $scope.selectedComparisons.splice($scope.selectedComparisons.indexOf(comparison.id),1)
+        }
+
+        return dis;
+      }
+    }
+
     $scope.addComparison = function(comparison){
 
       if(!comparison.id){
@@ -112,13 +128,11 @@ angular.module('comparativescalesApp')
     }
 
     $scope.modComparisons = function(isSelected, id){
-      //console.log(isSelected, id)
       if(isSelected){
         $scope.comparisons.filter(function(d){
           return d.id == id;
         })[0].isSelected = true;
         $scope.selectedComparisons.push(id)
-        //console.log("aggiunto")
       }else{
         $scope.selectedComparisons.splice($scope.selectedComparisons.indexOf(id),1)
         $scope.comparisons.filter(function(d){
