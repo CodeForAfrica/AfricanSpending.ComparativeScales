@@ -3,6 +3,7 @@ dist
 .tmp
 .sass-cache
 bower_components
+.grunt
 
 #mac hidden file
 .DS_Store
