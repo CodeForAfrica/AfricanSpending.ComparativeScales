@@ -386,6 +386,13 @@ module.exports = function (grunt) {
       ]
     },
 
+    'gh-pages': {
+      options: {
+        base: 'dist'
+      },
+      src: ['**']
+    },
+
     // Test settings
     karma: {
       unit: {
@@ -439,7 +446,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'gh-pages'
   ]);
 
   grunt.registerTask('default', [
