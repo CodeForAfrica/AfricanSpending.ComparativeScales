@@ -142,7 +142,7 @@
               <input
                 type="checkbox"
                 class="styled"
-                ng-disabled="bignumber/comparison.objvalue<1?true:false"
+                ng-disabled="disableComparison(editorpick)"
                 ng-model="comparison.isSelected"
                 ng-change="modComparisons(comparison.isSelected, comparison.id)">
               <label></label>

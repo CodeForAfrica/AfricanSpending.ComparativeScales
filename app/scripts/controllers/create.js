@@ -81,7 +81,14 @@ angular.module('comparativescalesApp')
     }
 
     $scope.disableComparison = function(comparison){
-      var dis = $scope.bignumber/comparison.objvalue*$scope.rates.rates[$scope.selUnit.selected]<1?true:false
+
+      var dis;
+      
+      if(comparison.isEditorpick){
+        dis = $scope.bignumber/comparison.objvalue*$scope.rates.rates[$scope.selUnit.selected]<1?true:false
+      }else{
+        dis = $scope.bignumber/comparison.objvalue<1?true:false
+      }
       if(dis){
         comparison.isSelected = false;
         var inSelected = $scope.selectedComparisons.filter(function(d){
