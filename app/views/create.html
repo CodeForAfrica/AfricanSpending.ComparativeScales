@@ -124,7 +124,42 @@
         </div>
       </div>
     </div>
-    <!-- editor comparisons -->
+        <!-- user comparisons -->
+    <div class="col-md-3" ng-repeat="comparison in comparisons | filter: {objDescription: comparisonSearch} | orderBy: '-id' track by comparison.id">
+      <div class="thumbnail thumbnailItem" ng-class="{'thumbnailSelected':comparison.isSelected}">
+        <div class="caption captionHover">
+          <button type="button" class="btnCustom btn btn-success" ng-click="open(comparison)">
+            edit
+          </button>
+          <button type="button" class="btn btn-default removeComparison" ng-click="removeComparison(comparison.id)">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+        </div>
+        <div class="caption">
+          <p>
+            added by you
+            <span class="checkbox checkbox-success checkbox-circle pull-right">
+              <input
+                type="checkbox"
+                class="styled"
+                ng-model="comparison.isSelected"
+                ng-change="modComparisons(comparison.isSelected, comparison.id)">
+              <label></label>
+            </span>
+          </p>
+        </div>
+        <div class="svgIconContainer" comparison="comparison" svg-icon></div>
+        <div class="caption cardDesc" ng-class="{'thumbnailSelected':comparison.isSelected}">
+          <p class="numberItems">
+            {{bignumber/comparison.objvalue | number:0}}
+          </p>
+          <p class="infoItems">
+            {{comparison.objDescription}}
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="col-md-3" ng-repeat="editorpick in editorpicks | filter: {objDescription: comparisonSearch} | orderBy: '-id' track by editorpick.id">
       <div class="thumbnail thumbnailItem" ng-class="{'thumbnailSelected':editorpick.isSelected}">
         <div class="caption captionHover">
@@ -176,41 +211,7 @@
         </div>
       </div>
     </div>
-    <!-- user comparisons -->
-    <div class="col-md-3" ng-repeat="comparison in comparisons | filter: {objDescription: comparisonSearch} | orderBy: '-id' track by comparison.id">
-      <div class="thumbnail thumbnailItem" ng-class="{'thumbnailSelected':comparison.isSelected}">
-        <div class="caption captionHover">
-          <button type="button" class="btnCustom btn btn-success" ng-click="open(comparison)">
-            edit
-          </button>
-          <button type="button" class="btn btn-default removeComparison" ng-click="removeComparison(comparison.id)">
-            <span class="glyphicon glyphicon-trash"></span>
-          </button>
-        </div>
-        <div class="caption">
-          <p>
-            added by you
-            <span class="checkbox checkbox-success checkbox-circle pull-right">
-              <input
-                type="checkbox"
-                class="styled"
-                ng-model="comparison.isSelected"
-                ng-change="modComparisons(comparison.isSelected, comparison.id)">
-              <label></label>
-            </span>
-          </p>
-        </div>
-        <div class="svgIconContainer" comparison="comparison" svg-icon></div>
-        <div class="caption cardDesc" ng-class="{'thumbnailSelected':comparison.isSelected}">
-          <p class="numberItems">
-            {{bignumber/comparison.objvalue | number:0}}
-          </p>
-          <p class="infoItems">
-            {{comparison.objDescription}}
-          </p>
-        </div>
-      </div>
-    </div>
+
   </div>
 </div>
 </div>
