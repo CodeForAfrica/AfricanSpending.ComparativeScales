@@ -55,30 +55,26 @@ angular.module('comparativescalesApp')
       {label:'Montserrat/Open Sans', slug:'moop'},
       {label:'Font1/Font2', slug:'tica'}
     ];
-    $scope.selectedFonts = $scope.fontsList[0].slug;
+    $scope.selectedFonts = 'moop';
+
     $scope.iconsSize = ['small', 'medium', 'large'];
     $scope.iconSize = $scope.iconsSize[1];
+
+
     $scope.iconsStyle = ['light', 'dark'];
     $scope.iconStyle = $scope.iconsStyle[0];
+
     $scope.layouts = ['tabs', 'columns'];
     $scope.layout = $scope.layouts[0];
 
-    // $scope.addComparison_old = function(){
-    //   $scope.editMode = true;
-    //   var id = $scope.comparisons.length?$scope.comparisons.length:0;
-    //   var elm = {
-    //     objDescription: '',
-    //     source: '',
-    //     credits: '',
-    //     itemsNumber: '',
-    //     objvalue: '',
-    //     id : id,
-    //     icon: '',
-    //     isSelected: false,
-    //     isActive:true
-    //   }
-    //   $scope.comparisons.push(elm)
-    // }
+    $scope.emb = {
+      boxwidth:$scope.boxwidth,
+      boxheight:$scope.boxheight,
+      iframeheight: $scope.iframeheight,
+      iconSize:$scope.iconSize,
+      iconStyle:$scope.iconStyle,
+      layout: $scope.layout
+    }
 
     $scope.addComparison = function(comparison){
 
@@ -173,35 +169,18 @@ angular.module('comparativescalesApp')
         });
     }
 
-    $scope.$watch('icon', function (newValue, oldValue) {
-      if(newValue != oldValue && newValue){
-        $scope.upload([$scope.icon]);
-      }
-    });
 
+    $scope.updateEmbedCode = function(){
+      $scope.embedCode = '<iframe src="' +$scope.baseUrl
+      + '&boxheight=' + $scope.emb.boxwidth
+      + '&height=' + $scope.emb.boxheight
+      + '&layout=' + $scope.emb.layout
+      + '&style=' + $scope.emb.iconStyle
+      + '&size=' + $scope.emb.iconSize
+      + '&fonts=' + $scope.emb.selectedFonts
+      + '&id='+ $scope.gistId + '&version=' + $scope.gistVersion +'" width="' + $scope.emb.boxwidth +'" height="' + $scope.emb.iframeheight +'" frameborder="0"></iframe>'
+    }
 
-    $scope.$watch("[boxwidth, boxheight, iframeheight, layout, iconStyle, iconSize, selectedFonts, gistId, gistVersion]", function (newValue, oldValue) {
-      if(newValue[0] && newValue[1] && newValue[2] && newValue[3] && newValue[4]){
-        $scope.embedCode = '<iframe src="' +$scope.baseUrl
-        + '&boxheight=' + newValue[1]
-        + '&height=' + newValue[2]
-        + '&layout=' + newValue[3]
-        + '&style=' + newValue[4]
-        + '&size=' + newValue[5]
-        + '&fonts=' + newValue[6]
-        + '&id='+ newValue[7] + '&version=' + newValue[8] +'" width="' + newValue[0] +'" height="' + newValue[2] +'" frameborder="0"></iframe>'
-      }
-    });
-
-    // $scope.svgIcon;
-    //
-    // $scope.$watch("[objDescription, objvalue, svgIcon, source]", function (newValue, oldValue) {
-    //   if(newValue[0] && newValue[1] && newValue[2] && newValue[3]){
-    //       $scope.outButtonDisabled = false;
-    //     }else{
-    //       $scope.outButtonDisabled = true;
-    //     }
-    // });
 
     $scope.getNumber = function(num, itemsNumber) {
       if(itemsNumber){
@@ -289,6 +268,7 @@ angular.module('comparativescalesApp')
           $scope.gistId = response.data.id
           $scope.gistVersion = response.data.history[0].version;
           $scope.savinggist = false;
+          $scope.updateEmbedCode();
         }, function(error) {
             $scope.savinggist = false;
         });

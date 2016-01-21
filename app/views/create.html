@@ -220,31 +220,31 @@
     <div class="col-md-4">
       <div class="form-group customBox">
         <label>width</label>
-        <input placeholder="box width" class="form-control" name="boxwidth" ng-model="boxwidth" min="1" required>
+        <input placeholder="box width" class="form-control" name="boxwidth" ng-model="boxwidth" min="1" modelwatch required>
       </div>
       <div class="form-group customBox">
         <label>height iframe</label>
-        <input type="number" placeholder="height" class="form-control" name="iframeheight" ng-model="iframeheight" min="1" required>
+        <input type="number" placeholder="height" class="form-control" name="iframeheight" ng-model="iframeheight" min="1" modelwatch required>
       </div>
       <div class="form-group customBox">
         <label>height icons box</label>
-        <input type="number" placeholder="box height" class="form-control" name="boxheight" ng-model="boxheight" min="1" required>
+        <input type="number" placeholder="box height" class="form-control" name="boxheight" ng-model="boxheight" min="1" modelwatch required>
       </div>
       <div class="form-group customBox">
         <label>layout</label>
-        <select class="form-control" ng-model="layout">
+        <select class="form-control" ng-model="layout" modelwatch>
           <option ng-repeat="layout in layouts" value="{{layout}}">{{layout}}</option>
         </select>
       </div>
       <div class="form-group customBox">
         <label>fonts</label>
-        <select class="form-control" ng-model="selectedFonts">
+        <select class="form-control" ng-model="selectedFonts" modelwatch>
           <option ng-repeat="fontList in fontsList" value="{{fontList.slug}}">{{fontList.label}}</option>
         </select>
       </div>
       <div class="form-group customBox">
         <label>icon size</label>
-        <select class="form-control" ng-model="iconSize">
+        <select class="form-control" ng-model="iconSize" modelwatch>
           <option value="small">small</option>
           <option selected="" value="medium">medium</option>
           <option value="large">large</option>
@@ -252,9 +252,9 @@
       </div>
       <div class="form-group customBox">
         <label>style</label>
-        <select class="form-control" ng-model="iconStyle">
+        <select class="form-control" ng-model="iconStyle" modelwatch>
           <option selected="" value="light">light</option>
-          <option selected="" value="dark">dark</option>
+          <option value="dark">dark</option>
         </select>
       </div>
       <button type="button" class="btn btn-success btnCustom" ng-click="publishGist()">
