@@ -57,7 +57,7 @@ angular.module('comparativescalesApp')
     $scope.savinggist = false;
     $scope.fontsList = [
       {label:'Montserrat/Open Sans', slug:'moop'},
-      {label:'Font1/Font2', slug:'tica'}
+      {label:'Georgia/Arial', slug:'tica'}
     ];
     $scope.selectedFonts = 'moop';
 
@@ -83,7 +83,7 @@ angular.module('comparativescalesApp')
     $scope.disableComparison = function(comparison){
 
       var dis;
-      
+
       if(comparison.isEditorpick){
         dis = $scope.bignumber/comparison.objvalue*$scope.rates.rates[$scope.selUnit.selected]<1?true:false
       }else{
