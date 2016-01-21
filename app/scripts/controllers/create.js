@@ -13,8 +13,12 @@ angular.module('comparativescalesApp')
     //edit mode
     $scope.viewModel = 'input';
     $scope.editorpicks = editorpicks;
-    $scope.editorpicks.forEach(function(d){
+    $scope.editorpicks.forEach(function(d,i){
       d.isEditorpick = true;
+      d.id = 'ep_' + i;
+      d.isActive = false;
+      d.isSelected = false;
+      d.itemsNumber = '';
     })
     $scope.rates = rates;
     $scope.comparisonSearch;

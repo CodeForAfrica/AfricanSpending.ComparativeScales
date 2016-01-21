@@ -1,24 +1,30 @@
 [
   {
-    "objDescription": "Hospitals in Kenya",
+    "objDescription": "Medium size Hospital in South Africa",
     "source": "http://thesource.com",
     "credits": "Created by Joe Doe from the Noun Project",
-    "itemsNumber": "",
-    "objvalue": 100,
-    "id" : "ep_1",
-    "iconUrl": "data/editorpicks/icons/icon1.svg",
-    "isSelected": false,
-    "isActive":false
+    "objvalue": 100000,
+    "iconUrl": "data/editorpicks/icons/icon1.svg"
   },
   {
-    "objDescription": "schools ans teacher salaries for two years in Kenya",
+    "objDescription": "Teacher’s monthly salary in Kenya",
     "source": "http://thesource.com",
     "credits": "Created by Joe Doe from the Noun Project",
-    "itemsNumber": "",
-    "objvalue": 200,
-    "id" : "ep_2",
-    "iconUrl": "data/editorpicks/icons/icon2.svg",
-    "isSelected": false,
-    "isActive":false
+    "objvalue": 300,
+    "iconUrl": "data/editorpicks/icons/icon3.svg"
+  },
+  {
+    "objDescription": "Nurse’s monthly salary in Congo",
+    "source": "http://thesource.com",
+    "credits": "Created by Joe Doe from the Noun Project",
+    "objvalue": 500,
+    "iconUrl": "data/editorpicks/icons/icon4.svg"
+  },
+  {
+    "objDescription": "Ambulance in Zimbabwe",
+    "source": "http://thesource.com",
+    "credits": "Created by Joe Doe from the Noun Project",
+    "objvalue": 5000,
+    "iconUrl": "data/editorpicks/icons/icon5.svg"
   }
 ]

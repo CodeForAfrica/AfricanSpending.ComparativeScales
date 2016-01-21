@@ -360,6 +360,7 @@ line-height: 15px;
 .svgIconContainer{
   height: 180px;
   width:100%;
+  padding: 10px;
 }
 
 /* bottom line */
