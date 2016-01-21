@@ -142,6 +142,7 @@
               <input
                 type="checkbox"
                 class="styled"
+                ng-disabled="bignumber/comparison.objvalue<1?true:false"
                 ng-model="comparison.isSelected"
                 ng-change="modComparisons(comparison.isSelected, comparison.id)">
               <label></label>
@@ -160,6 +161,7 @@
       </div>
     </div>
 
+    <!-- editor comparisons -->
     <div class="col-md-3" ng-repeat="editorpick in editorpicks | filter: {objDescription: comparisonSearch} | orderBy: '-id' track by editorpick.id">
       <div class="thumbnail thumbnailItem" ng-class="{'thumbnailSelected':editorpick.isSelected}">
         <div class="caption captionHover">
@@ -194,6 +196,7 @@
               <input
                 type="checkbox"
                 class="styled"
+                ng-disabled="bignumber/editorpick.objvalue*rates.rates[selUnit.selected]<1?true:false"
                 ng-model="editorpick.isSelected"
                 ng-change="modEditorpicks(editorpick.isSelected, editorpick.id)">
               <label></label>
