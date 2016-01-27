@@ -45,8 +45,8 @@ angular.module('comparativescalesApp')
 
     //output mode values
     $scope.boxwidth = 600;
-    $scope.boxheight = 300;
     $scope.iframeheight = 600;
+    $scope.boxheight = $scope.iframeheight-200;
     $scope.gistId;
     $scope.gistVersion;
     $scope.embedCode;
@@ -84,8 +84,8 @@ angular.module('comparativescalesApp')
 
       var dis;
 
-      if(comparison.isEditorpick){
-        dis = $scope.bignumber/comparison.objvalue*$scope.rates.rates[$scope.selUnit.selected]<1?true:false
+      if(comparison && comparison.isEditorpick){
+        dis = $scope.bignumber/(comparison.objvalue*$scope.rates.rates[$scope.selUnit.selected])<1?true:false
       }else{
         dis = $scope.bignumber/comparison.objvalue<1?true:false
       }
@@ -196,9 +196,12 @@ angular.module('comparativescalesApp')
 
 
     $scope.updateEmbedCode = function(){
+      $scope.boxheight = $scope.emb.iframeheight-200;
+      $scope.emb.boxheight = $scope.boxheight;
+
       $scope.embedCode = '<iframe src="' +$scope.baseUrl
-      + '&boxheight=' + $scope.emb.boxwidth
-      + '&height=' + $scope.emb.boxheight
+      + '&boxheight=' + $scope.emb.boxheight
+      + '&height=' + $scope.emb.iframeheight
       + '&layout=' + $scope.emb.layout
       + '&style=' + $scope.emb.iconStyle
       + '&size=' + $scope.emb.iconSize
@@ -216,7 +219,6 @@ angular.module('comparativescalesApp')
     }
 
     $scope.limit = 100
-    //$scope.offset = 100
     $scope.increaseLimit = function () {
       //if ($scope.limit < $scope.items.length) {
         $scope.limit += 100;
