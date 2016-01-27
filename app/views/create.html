@@ -142,7 +142,7 @@
               <input
                 type="checkbox"
                 class="styled"
-                ng-disabled="disableComparison(editorpick)"
+                ng-disabled="disableComparison(comparison)"
                 ng-model="comparison.isSelected"
                 ng-change="modComparisons(comparison.isSelected, comparison.id)">
               <label></label>
@@ -334,7 +334,7 @@
   </div>
 </div>
 
-<div class="bottomLine" ng-class="{'bottomLineShow':selectedComparisons.length}">
+<div class="bottomLine" ng-class="{'bottomLineShow':selectedComparisons.length}" ng-show="bignumberForm.$valid">
   <div class="container">
     <div class="row">
       <div class="col-md-3" ng-show="viewModel == 'output'">

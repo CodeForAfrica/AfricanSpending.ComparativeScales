@@ -86,7 +86,8 @@ angular.module('comparativescalesApp')
 
       if(comparison && comparison.isEditorpick){
         dis = $scope.bignumber/(comparison.objvalue*$scope.rates.rates[$scope.selUnit.selected])<1?true:false
-      }else{
+      }else if(comparison && !comparison.isEditorpick){
+        console.log("ciao")
         dis = $scope.bignumber/comparison.objvalue<1?true:false
       }
       if(dis){
