@@ -98,6 +98,10 @@ span.step {
   width: 1.6em;
 }
 
+.comprow{
+  padding-bottom: 100px;
+}
+
 /*forms*/
 .form-group {
   background: #FFFFFF;
