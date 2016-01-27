@@ -225,11 +225,24 @@
     <div class="col-md-4">
       <div class="form-group customBox">
         <label>width</label>
-        <input placeholder="box width" class="form-control" name="boxwidth" ng-model="boxwidth" min="1" modelwatch required>
+        <input
+        placeholder="box width"
+        class="form-control"
+        name="boxwidth"
+        ng-model="boxwidth"
+        ng-model-options="{ debounce: 200 }"
+        min="1" modelwatch required>
       </div>
       <div class="form-group customBox">
         <label>height iframe</label>
-        <input type="number" placeholder="height" class="form-control" name="iframeheight" ng-model="iframeheight" min="1" modelwatch required>
+        <input
+        type="number"
+        placeholder="height"
+        class="form-control"
+        name="iframeheight"
+        ng-model="iframeheight"
+        ng-model-options="{ debounce: 200 }"
+        min="1" modelwatch required>
       </div>
       <div class="form-group customBox">
         <label>layout</label>
@@ -283,28 +296,6 @@
           <div vtabs></div>
         </div>
       </div>
-      <!-- <tabset ng-if="layout == 'tabs'">
-        <tab ng-repeat="comparison in comparisons.concat(editorpicks) | filter: {isSelected:true}" heading="{{'comparison ' + ($index+1)}}">
-          <div>
-            <h2>{{bignumber/comparison.objvalue | number:1}}</h2>
-            <p>{{comparison.objDescription}}</p>
-          </div>
-          <div style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
-            <div
-              class="finalIcon"
-              ng-class="{small:'icon-small', medium:'icon-medium', large:'icon-large'}[iconSize]"
-              iconstyle="light"
-              comparison="comparison"
-              ng-repeat="i in getNumber(bignumber/comparison.objvalue) track by $index"
-              svg-icon>
-            </div>
-          </div>
-          <div>
-            <h6>SOURCE: <a ng-href="{{comparison.source}}" target="_blank">{{comparison.source}}</a></h6>
-            <h6>CREDITS: {{comparison.credits}}</h6>
-          </div>
-        </tab>
-      </tabset> -->
       <div class="row">
         <div class="col-md-12 costLikeCol" ng-if="layout == 'columns'">
           <p>

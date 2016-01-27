@@ -18,8 +18,7 @@
           name="inputComparison"
           ng-model="comparison.objvalue"
           min="1"
-          max="{{bignumber}}"
-          ng-model-options="{ debounce: 1000 }"
+          ng-model-options="{ debounce: 100 }"
           required
         >
         <span class="input-group-addon">{{selUnit}}</span>
