@@ -1,30 +1,485 @@
 [
   {
-    "objDescription": "Medium size Hospital in South Africa",
-    "source": "http://thesource.com",
-    "credits": "Created by Joe Doe from the Noun Project",
-    "objvalue": 100000,
-    "iconUrl": "data/editorpicks/icons/icon1.svg"
+    "objDescription": "President’s annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 205500,
+    "iconUrl": "data/editorpicks/icons/president.svg"
   },
   {
-    "objDescription": "Teacher’s monthly salary in Kenya",
-    "source": "http://thesource.com",
-    "credits": "Created by Joe Doe from the Noun Project",
-    "objvalue": 300,
-    "iconUrl": "data/editorpicks/icons/icon3.svg"
+    "objDescription": "Deputy President’s annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by Les vieux garçons from the Noun Project",
+    "objvalue": 174675,
+    "iconUrl": "data/editorpicks/icons/deputy.svg"
   },
   {
-    "objDescription": "Nurse’s monthly salary in Congo",
-    "source": "http://thesource.com",
-    "credits": "Created by Joe Doe from the Noun Project",
-    "objvalue": 500,
-    "iconUrl": "data/editorpicks/icons/icon4.svg"
+    "objDescription": "Cabinet Secretaries / Ministers annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 131520,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
   },
   {
-    "objDescription": "Ambulance in Zimbabwe",
-    "source": "http://thesource.com",
-    "credits": "Created by Joe Doe from the Noun Project",
-    "objvalue": 5000,
-    "iconUrl": "data/editorpicks/icons/icon5.svg"
+    "objDescription": "Principal Secretaries' annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 106812,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Speaker of the National Assembly's annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 174675,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Members of Parliament annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 130345,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Speaker of the Senate annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 161515,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "County Governor annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 130542,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Members of County Assembly annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 18504,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Ward Representatives annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 9277,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Director General of National Intelligence Services annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by gilbert bages from the Noun Project",
+    "objvalue": 107653,
+    "iconUrl": "data/editorpicks/icons/intelligence.svg"
+  },
+  {
+    "objDescription": "Inspector General of Police annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by Aha-Soft from the Noun Project",
+    "objvalue": 108074,
+    "iconUrl": "data/editorpicks/icons/inspector.svg"
+  },
+  {
+    "objDescription": "Chief Justice annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by parkjisun from the Noun Project",
+    "objvalue": 162092,
+    "iconUrl": "data/editorpicks/icons/chief.svg"
+  },
+  {
+    "objDescription": "Attorney General annual salary in Kenya",
+    "source": "unknown",
+    "credits": "Created by Mister Pixel from the Noun Project",
+    "objvalue": 128586,
+    "iconUrl": "data/editorpicks/icons/attorney.svg"
+  },
+  {
+    "objDescription": "President’s annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 17644,
+    "iconUrl": "data/editorpicks/icons/president.svg"
+  },
+  {
+    "objDescription": "Deputy President’s annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Les vieux garçons from the Noun Project",
+    "objvalue": 15219,
+    "iconUrl": "data/editorpicks/icons/deputy.svg"
+  },
+  {
+    "objDescription": "Cabinet Secretaries / Ministers annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 10172,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Principal Secretaries' annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 9668,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Speaker of the National Assembly's annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 12471,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Members of Parliament annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 10172,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Speaker of the Senate annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 12435,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Senators annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 9966,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "County Governor annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 11163,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Members of County Assembly annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 6713,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "City Mayor annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Laurent Patain from the Noun Project",
+    "objvalue": 4559,
+    "iconUrl": "data/editorpicks/icons/mayor.svg"
+  },
+  {
+    "objDescription": "Ward Representatives annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 3815,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Inspector General of Police annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Aha-Soft from the Noun Project",
+    "objvalue": 6264,
+    "iconUrl": "data/editorpicks/icons/inspector.svg"
+  },
+  {
+    "objDescription": "Director General of National Intelligence Services annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by gilbert bages from the Noun Project",
+    "objvalue": 6264,
+    "iconUrl": "data/editorpicks/icons/intelligence.svg"
+  },
+  {
+    "objDescription": "Chief Justice annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by parkjisun from the Noun Project",
+    "objvalue": 16887,
+    "iconUrl": "data/editorpicks/icons/chief.svg"
+  },
+  {
+    "objDescription": "Attorney General annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Mister Pixel from the Noun Project",
+    "objvalue": 10172,
+    "iconUrl": "data/editorpicks/icons/attorney.svg"
+  },
+  {
+    "objDescription": "Public University Chancellor annual salary in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Luis Prado from the Noun Project",
+    "objvalue": 16110,
+    "iconUrl": "data/editorpicks/icons/university.svg"
+  },
+  {
+    "objDescription": "President’s annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 168113,
+    "iconUrl": "data/editorpicks/icons/president.svg"
+  },
+  {
+    "objDescription": "Deputy President’s annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by Les vieux garçons from the Noun Project",
+    "objvalue": 158870,
+    "iconUrl": "data/editorpicks/icons/deputy.svg"
+  },
+  {
+    "objDescription": "Cabinet Secretaries / Ministers annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 135039,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Principal Secretaries' annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 111229,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Speaker of the National Assembly's annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 158870,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Members of Parliament annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 60439,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Speaker of the Senate annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 158870,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Senators annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 49015,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "County Governor annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 127098,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Members of County Assembly annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 58489,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "City Mayor annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by Laurent Patain from the Noun Project",
+    "objvalue": 70379,
+    "iconUrl": "data/editorpicks/icons/mayor.svg"
+  },
+  {
+    "objDescription": "Ward Representatives annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by Marie Van den Broeck from the Noun Project",
+    "objvalue": 27001,
+    "iconUrl": "data/editorpicks/icons/politicians.svg"
+  },
+  {
+    "objDescription": "Director General of National Intelligence Services annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by gilbert bages from the Noun Project",
+    "objvalue": 103785,
+    "iconUrl": "data/editorpicks/icons/intelligence.svg"
+  },
+  {
+    "objDescription": "Chief Justice annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by parkjisun from the Noun Project",
+    "objvalue": 158870,
+    "iconUrl": "data/editorpicks/icons/chief.svg"
+  },
+  {
+    "objDescription": "Public University Chancellor annual salary in South Africa",
+    "source": "unknown",
+    "credits": "Created by Luis Prado from the Noun Project",
+    "objvalue": 164835,
+    "iconUrl": "data/editorpicks/icons/university.svg"
+  },
+  {
+    "objDescription": "Zidovudine / Lamivudine / Nevirapine 300 / 150 / 200mg Tablets in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Nikita Kozin from the Noun Project",
+    "objvalue": 9.03,
+    "iconUrl": "data/editorpicks/icons/tablets.svg"
+  },
+  {
+    "objDescription": "Efavirenz / Lamivudine / Tenofovir 600 / 300 / 300mg Tablets in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Nikita Kozin from the Noun Project",
+    "objvalue": 	10.41,
+    "iconUrl": "data/editorpicks/icons/tablets.svg"
+  },
+  {
+    "objDescription": "Zidovudine / Lamivudme 300 / 150mg Tablets in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Nikita Kozin from the Noun Project",
+    "objvalue": 	7.4,
+    "iconUrl": "data/editorpicks/icons/tablets.svg"
+  },
+  {
+    "objDescription": "Tenofovir / Lamivudine 300 / 300mg Tablets in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Nikita Kozin from the Noun Project",
+    "objvalue": 	5.3,
+    "iconUrl": "data/editorpicks/icons/tablets.svg"
+  },
+  {
+    "objDescription": "Efavirenz 600mg Tablets in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Nikita Kozin from the Noun Project",
+    "objvalue": 	4.1,
+    "iconUrl": "data/editorpicks/icons/tablets.svg"
+  },
+  {
+    "objDescription": "Nevirapine 200 mg Tablets in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Nikita Kozin from the Noun Project",
+    "objvalue": 	3.13,
+    "iconUrl": "data/editorpicks/icons/tablets.svg"
+  },
+  {
+    "objDescription": "Stavudine / Lamivudine / Nevirapine 12 / 60 / 100mg Tablets in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Nikita Kozin from the Noun Project",
+    "objvalue": 6.2,
+    "iconUrl": "data/editorpicks/icons/tablets.svg"
+  },
+  {
+    "objDescription": "Zidovudine / Lamivudine / Nevirapine 60 / 30 / 50mg Tablets in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Nikita Kozin from the Noun Project",
+    "objvalue": 5.04,
+    "iconUrl": "data/editorpicks/icons/tablets.svg"
+  },
+  {
+    "objDescription": "HIV Rapid Test Kits Screening Test in Nigeria",
+    "source": "unknown",
+    "credits": "Created by hunotika from the Noun Project",
+    "objvalue": 1.1,
+    "iconUrl": "data/editorpicks/icons/test.svg"
+  },
+  {
+    "objDescription": "HIV Rapid Test Kits Confirmatory Test in Nigeria",
+    "source": "unknown",
+    "credits": "Created by hunotika from the Noun Project",
+    "objvalue": 1.1,
+    "iconUrl": "data/editorpicks/icons/test.svg"
+  },
+  {
+    "objDescription": "Drugs for Opportunistic Infections, Cotrimoxazole 960mg Tablets in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Nikita Kozin from the Noun Project",
+    "objvalue": 13.77,
+    "iconUrl": "data/editorpicks/icons/tablets.svg"
+  },
+  {
+    "objDescription": "Drugs for Opportunistic Infections, Cotrimoxazole 120 mg Tablets in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Nikita Kozin from the Noun Project",
+    "objvalue": 0.7,
+    "iconUrl": "data/editorpicks/icons/tablets.svg"
+  },
+  {
+    "objDescription": "Drugs for Opportunistic Infections, Isoniazid 300mg in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Nikita Kozin from the Noun Project",
+    "objvalue": 20.55,
+    "iconUrl": "data/editorpicks/icons/tablets.svg"
+  },
+  {
+    "objDescription": "Drugs for Opportunistic Infections, Multivitamin Tablets in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Nikita Kozin from the Noun Project",
+    "objvalue": 0.24,
+    "iconUrl": "data/editorpicks/icons/tablets.svg"
+  },
+  {
+    "objDescription": "HIV Laboratory Blood Chemistry Point of Care Analyzer in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Creative Stall from the Noun Project",
+    "objvalue": 11312,
+    "iconUrl": "data/editorpicks/icons/lab.svg"
+  },
+  {
+    "objDescription": "HIV Laboratory CD4 Point of Care Analyzer in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Creative Stall from the Noun Project",
+    "objvalue": 12356,
+    "iconUrl": "data/editorpicks/icons/lab.svg"
+  },
+  {
+    "objDescription": "HIV Laboratory Hematoloty Point of care Analyzer in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Creative Stall from the Noun Project",
+    "objvalue": 10092,
+    "iconUrl": "data/editorpicks/icons/lab.svg"
+  },
+  {
+    "objDescription": "Facscount CD4 Reagents in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Alexander Bogomolov from the Noun Project",
+    "objvalue": 30.78,
+    "iconUrl": "data/editorpicks/icons/chemical.svg"
+  },
+  {
+    "objDescription": "Cytlow CD4 Reagents in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Alexander Bogomolov from the Noun Project",
+    "objvalue": 265,
+    "iconUrl": "data/editorpicks/icons/chemical.svg"
+  },
+  {
+    "objDescription": "Reflotron Chemistry Reagents in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Alexander Bogomolov from the Noun Project",
+    "objvalue": 385,
+    "iconUrl": "data/editorpicks/icons/chemical.svg"
+  },
+  {
+    "objDescription": "Abacus Hematology Reagents in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Alexander Bogomolov from the Noun Project",
+    "objvalue": 1189,
+    "iconUrl": "data/editorpicks/icons/chemical.svg"
+  },
+  {
+    "objDescription": "Sysmex Hematology Reagents in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Alexander Bogomolov from the Noun Project",
+    "objvalue": 741,
+    "iconUrl": "data/editorpicks/icons/chemical.svg"
+  },
+  {
+    "objDescription": "Selectra Junior Chemistry Reagents in Nigeria",
+    "source": "unknown",
+    "credits": "Created by Alexander Bogomolov from the Noun Project",
+    "objvalue": 2662,
+    "iconUrl": "data/editorpicks/icons/chemical.svg"
   }
 ]
