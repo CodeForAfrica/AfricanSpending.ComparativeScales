@@ -152,7 +152,7 @@
         <div class="svgIconContainer" comparison="comparison" svg-icon></div>
         <div class="caption cardDesc" ng-class="{'thumbnailSelected':comparison.isSelected}">
           <p class="numberItems">
-            {{bignumber/comparison.objvalue | number:0}}
+            {{Math.floor(bignumber/comparison.objvalue) | number:0}}
           </p>
           <p class="infoItems">
             {{comparison.objDescription}}
@@ -207,7 +207,7 @@
         <div class="svgIconContainer" comparison="editorpick" svg-icon></div>
         <div class="caption cardDesc" ng-class="{'thumbnailSelected':editorpick.isSelected}">
           <p class="numberItems">
-            {{bignumber/(editorpick.objvalue*rates.rates[selUnit.selected]) | number:0}}
+            {{Math.floor(bignumber/(editorpick.objvalue*rates.rates[selUnit.selected])) | number:0}}
           </p>
           <p class="infoItems">
             {{editorpick.objDescription}}

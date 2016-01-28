@@ -22,6 +22,7 @@ angular.module('comparativescalesApp')
     })
     $scope.rates = rates;
     $scope.comparisonSearch;
+    $scope.Math = Math;
 
     //source comparison values
     $scope.currencies = currencies;
