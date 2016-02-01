@@ -57,8 +57,8 @@ angular.module('comparativescalesApp')
     $scope.credits;
     $scope.savinggist = false;
     $scope.fontsList = [
-      {label:'Montserrat/Open Sans', slug:'moop'},
-      {label:'Georgia/Arial', slug:'tica'}
+      {label:'Montserrat/Georgia', slug:'moop'},
+      {label:'Roboto/PT serif', slug:'tica'}
     ];
     $scope.selectedFonts = 'moop';
 

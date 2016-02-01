@@ -234,7 +234,7 @@
         min="1" modelwatch required>
       </div>
       <div class="form-group customBox">
-        <label>height iframe</label>
+        <label>height</label>
         <input
         type="number"
         placeholder="height"
@@ -264,13 +264,13 @@
           <option value="large">large</option>
         </select>
       </div>
-      <div class="form-group customBox">
+      <!-- <div class="form-group customBox">
         <label>style</label>
         <select class="form-control" ng-model="iconStyle" modelwatch>
           <option selected="" value="light">light</option>
           <option value="dark">dark</option>
         </select>
-      </div>
+      </div> -->
       <button type="button" class="btn btn-success btnCustom" ng-click="publishGist()">
         embed
       </button>
@@ -288,32 +288,35 @@
         ng-class="{light:'light', dark:'dark'}[iconStyle]"
         class="output">
       <div class="big-number-output">
-        <h2>{{bignumber}} {{selUnit.selected}}</h2>
         <p>{{description}}</p>
-      </div>
-      <div class="row" ng-if="layout == 'tabs'">
-        <div class="col-md-12">
-          <div vtabs></div>
+        <h2>
+          {{bignumber | number:0}} {{selUnit.selected}}
+        </h2>
+        <div class="changeRate">
+          <span ng-if="selUnit.selected!='USD'">
+          on {{rates.timestamp*1000 | date}}, 1 USD was {{rates.rates[selUnit.selected]| number:2}} {{selUnit.selected}}
+          </span>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12 costLikeCol" ng-if="layout == 'columns'">
-          <p>
-            Costs like
-          </p>
+      <div class="tabsCont" ng-if="layout == 'tabs'">
+        <div class="col-md-12 fullHeight">
+          <div vtabs class="fullHeight"></div>
         </div>
       </div>
-      <div class="row" ng-if="layout == 'columns'">
+      <div class="columnsCont" ng-if="layout == 'columns'">
         <div
           ng-repeat="comparison in filtered = (comparisons.concat(editorpicks) | filter: {isSelected:true})"
           ng-class="'col-xs-'+(12/filtered.length)"
           class="columns"
           >
           <div class="columnsInner">
+            <p class="corresponds">
+              corresponds to
+            </p>
             <h2>{{bignumber/comparison.objvalue | number:0}}</h2>
             <p>{{comparison.objDescription}}</p>
           </div>
-          <div buffered-scroll="increaseLimit()" class="outputIconBox" style="overflow-y:scroll;" ng-style="{'height': boxheight+'px'}">
+          <div buffered-scroll="increaseLimit()" class="outputIconBox columnsContIcon" style="overflow-y:scroll;">
             <div
               class="finalIcon"
               ng-class="{small:'icon-small', medium:'icon-medium', large:'icon-large'}[iconSize]"
@@ -323,7 +326,7 @@
               svg-icon>
             </div>
           </div>
-          <div>
+          <div class="infoColumns">
             <h6>SOURCE: {{comparison.source}}</h6>
             <h6>CREDITS: {{comparison.credits}}</h6>
           </div>
@@ -344,7 +347,7 @@
       </div>
       <div class="col-md-3 col-md-offset-3" ng-show="viewModel == 'input'">
         <p>
-          {{selectedComparisons.length}} comparison(s) selected
+          {{selectedComparisons.length}} comparison(s) selected [3 max.]
         </p>
       </div>
       <div class="col-md-3">

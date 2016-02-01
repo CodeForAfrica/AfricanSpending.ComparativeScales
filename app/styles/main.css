@@ -60,7 +60,7 @@ text-transform: uppercase;
   font-weight: 400;
 font-size: 14px;
 letter-spacing: 0px;
-line-height: 22px;
+line-height: 16px;
 text-transform: none;
 }
 
@@ -199,6 +199,16 @@ padding-top: 10px;
 .change{
   margin-top: 40px;
   color: #ccc;
+}
+
+.changeRate{
+  color: #ccc;
+  font-size: 10px;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: normal;
+  padding-top: 12px;
+  min-height: 26px;
 }
 
 /*comparison card*/
@@ -405,13 +415,12 @@ line-height: 15px;
 /* output */
 .big-number-output {
   border-bottom: 1px solid #E8E8E8;
-  padding-left: 20px;
+  padding: 20px;
 }
 
 .big-number-output p{
-font-size: 20px;
-color: #4A4A4A;
-line-height: 27px;
+  font-size: 16px;
+  color: #4A4A4A;
 }
 
 .outputIconBox{
@@ -419,6 +428,7 @@ line-height: 27px;
   flex-wrap: wrap;
   justify-content:center;
   align-content: flex-start;
+  padding-top: 10px;
 }
 
 .icon-small{
@@ -434,6 +444,31 @@ line-height: 27px;
 .icon-large{
   width: 150px;
   height: 150px;
+}
+
+.columnsCont{
+  height: calc(100% - 127px);
+}
+
+.columnsContIcon{
+  height: calc(100% - 180px);
+}
+
+.tabsCont{
+  height: calc(100% - 127px);
+}
+
+.tabContIcon{
+  height: calc(100% - 100px);
+}
+
+.navIconCont{
+  height: calc(100% - 61px);
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.fullHeight{
+  height: 100%;
 }
 
 .output {
@@ -507,8 +542,17 @@ border: 1px solid #E8E8E8;
     padding-top: 10px;
 }
 
+.output .nav-stacked > li {
+    padding-top: 10px;
+}
+
 .output .tab-content{
   border-left:1px solid #E8E8E8;
+}
+
+.output .row.tab-content{
+  padding-top: 10px;
+  border-left: none;
 }
 
 .output .tabList li{
@@ -521,52 +565,110 @@ border: 1px solid #E8E8E8;
 }
 
 .output .tabList li.active{
-color:#4A4A4A;
+  color:#4A4A4A;
+  box-shadow: inset 5px 0px 0px 0px #4a4a4a;
 }
 
 .output .tabList p::first-letter {
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
 .output .columnsInner {
-  padding-left: 20px;
+  height: 120px;
+  padding-top: 10px;
 }
+
 
 .output .columnsInner p::first-letter{
   text-transform: uppercase;
 }
 
 .output .columns {
-  border-right:1px solid #E8E8E8;
+  border-left: none;
+  height: 100%;
+}
+
+.output .columns + .columns {
+  border-left:1px solid #E8E8E8;
+  height: 100%;
 }
 
 .output .columns h6{
-  padding-left: 20px;
+  /*padding-left: 20px;*/
 }
 
 .output .tabList h3{
   margin-top: 0;
 }
 
+.infoColumns{
+  padding-top: 10px;
+}
 
 #output.moop{
-  font-family: 'Open Sans', serif;
+  font-family: Georgia, serif;
+}
+
+#output.moop{
+  font-family: Georgia, serif;
+}
+
+#output.moop .corresponds,
+#output.tica .corresponds{
+  text-transform: lowercase;;
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 0px;
 }
 
 #output.moop h2, #output.moop h6{
   font-family: 'Montserrat', sans-serif;
 }
 
+#output.moop h6{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 10px;
+  margin: 0px;
+}
+
+
+#output.moop .comparisonButton h2,
+#output.moop .columnsCont h2,
+#output.tica .comparisonButton h2,
+#output.tica .columnsCont h2{
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+#output.moop h2,
+#output.tica h2{
+  font-weight: 700;
+  font-size: 50px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
 
 #output.tica{
-  font-family: Georgia, serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 #output.tica h2, #output.tica h6{
-  font-family: Arial, sans-serif;
+  font-family: 'PT serif', serif;
 }
 
-
+#output.tica h6{
+  font-family: 'PT serif', sans-serif;
+  font-weight: normal;
+  font-size: 10px;
+  margin: 0px;
+}
 
 /* checkbox round */
 
