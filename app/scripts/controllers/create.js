@@ -85,10 +85,11 @@ angular.module('comparativescalesApp')
 
       var dis;
 
-      if(comparison && comparison.isEditorpick){
+      if(comparison && $scope.selectedComparisons.length == 3 && !comparison.isSelected){
+        dis = true
+      }else if(comparison && comparison.isEditorpick){
         dis = $scope.bignumber/(comparison.objvalue*$scope.rates.rates[$scope.selUnit.selected])<1?true:false
       }else if(comparison && !comparison.isEditorpick){
-        console.log("ciao")
         dis = $scope.bignumber/comparison.objvalue<1?true:false
       }
       if(dis){
@@ -202,10 +203,8 @@ angular.module('comparativescalesApp')
       $scope.emb.boxheight = $scope.boxheight;
 
       $scope.embedCode = '<iframe src="' +$scope.baseUrl
-      + '&boxheight=' + $scope.emb.boxheight
-      + '&height=' + $scope.emb.iframeheight
+      + 'height=' + $scope.emb.iframeheight
       + '&layout=' + $scope.emb.layout
-      + '&style=' + $scope.emb.iconStyle
       + '&size=' + $scope.emb.iconSize
       + '&fonts=' + $scope.emb.selectedFonts
       + '&id='+ $scope.gistId + '&version=' + $scope.gistVersion +'" width="' + $scope.emb.boxwidth +'" height="' + $scope.emb.iframeheight +'" frameborder="0"></iframe>'
