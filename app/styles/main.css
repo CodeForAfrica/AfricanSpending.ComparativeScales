@@ -36,14 +36,15 @@ background: #09B36A;
 .navbar {
 background: #FFFFFF;
 border: 1px solid #E6E6E6;
+margin-bottom: 0;
 }
 
-.navbar-brand{
-font-family: 'Montserrat', sans-serif;
-font-size: 24px;
-color: #4A4A4A;
-letter-spacing: 1px;
-text-transform: uppercase;
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    color: #4A4A4A;
+    letter-spacing: 1px;
+    text-transform: capitalize!important;
 }
 
 /* typography */
@@ -785,4 +786,24 @@ input[type="checkbox"] .styled:checked + label::before{
 }
 input[type="checkbox"] .styled:checked + label::after{
   color: #fff;
+}
+
+
+/*Home*/
+.jumbotron {
+  min-height:450px;
+  background: url("../images/icons_homepage.png");
+  background-repeat: no-repeat;
+}
+
+.jumbotron h1{
+  padding-bottom: 30px;
+}
+
+.jumbotron p{
+  padding-bottom: 30px;
+}
+
+footer {
+  
 }
