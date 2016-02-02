@@ -359,8 +359,13 @@ padding-top: 20px;
 
 .closeDetails{
   position: absolute;
-  right: 10px;
-  top:12px;
+  right: 22px;
+  top:14px;
+}
+
+.costDate{
+  font-size: 12px;
+  color: #828181;
 }
 
 .captionDetails label{

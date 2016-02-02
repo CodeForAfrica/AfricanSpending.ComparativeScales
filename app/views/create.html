@@ -137,7 +137,10 @@
           </span>
           <div>
             <label>item cost</label>
-            <p>{{(editorpick.objvalue*rates.rates[selUnit.selected]) | number}} {{selUnit.selected}}</p>
+            <p>
+              {{(editorpick.objvalue*rates.rates[selUnit.selected]) | number}} {{selUnit.selected}}
+              <span class="costDate" ng-if="editorpick.costDate">on the {{editorpick.costDate}}</span>
+            </p>
           </div>
           <div>
             <label>description</label>
