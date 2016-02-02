@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'ui.bootstrap',
     'ngFileUpload',
-    'ui.select'
+    'ui.select',
+    'angular-loading-bar'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -55,4 +56,7 @@ angular
       .otherwise({
         redirectTo: '/home'
       });
-  });
+  })
+  .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+  cfpLoadingBarProvider.includeSpinner = false;
+  }]);

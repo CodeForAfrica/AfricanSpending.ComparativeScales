@@ -12,6 +12,15 @@ body {
   margin-top: 20px;
 }
 
+#loading-bar .bar {
+  background-color: #4A4A4A;
+  height: 3px;
+}
+
+.createCont{
+  padding-top: 20px;
+}
+
 /*UI General*/
 .btnCustom{
   text-transform: uppercase;
@@ -805,5 +814,5 @@ input[type="checkbox"] .styled:checked + label::after{
 }
 
 footer {
-  
+
 }

@@ -28,7 +28,7 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav ng-show="show" class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -94,6 +94,7 @@
         <script src="scripts/directives/vtabs.js"></script>
         <script src="scripts/directives/bufferedscroll.js"></script>
         <script src="scripts/directives/modelwatch.js"></script>
+        <script src="scripts/controllers/navbar.js"></script>
         <!-- endbuild -->
 </body>
 </html>
