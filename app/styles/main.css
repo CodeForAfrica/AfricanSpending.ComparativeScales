@@ -635,6 +635,14 @@ border: 1px solid #E8E8E8;
   font-family: 'Montserrat', sans-serif;
 }
 
+.creditsLibra{
+  color: #BAB9BA;
+}
+
+.creditsLibra a{
+  color: #4A4A4A;
+}
+
 #output.moop h6{
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
