@@ -57,7 +57,7 @@ angular.module('comparativescalesApp')
         var deferred = $q.defer();
         $http({
           method: 'GET',
-          url : 'https://sourceafrica.net/javascripts/rates.json'
+          url : 'https://dc.sourceafrica.net/javascripts/rates.json'
         }).success(function(data){
           deferred.resolve(data);
         }).error(function(){
