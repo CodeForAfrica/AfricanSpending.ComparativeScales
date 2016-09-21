@@ -815,7 +815,6 @@ input[type="checkbox"] .styled:checked + label::after{
 .jumbotron {
   min-height:450px;
   background: url("../images/icons_homepage.png");
-  background-repeat: no-repeat;
 }
 
 .jumbotron h1{
@@ -826,6 +825,16 @@ input[type="checkbox"] .styled:checked + label::after{
   padding-bottom: 30px;
 }
 
-footer {
+footer a{
+  text-decoration: none;
+  color: #777;
+}
 
+footer a:hover{
+  text-decoration: none;
+  color: #5e5e5e;
+}
+
+footer p{
+  margin-bottom: 30px;
 }

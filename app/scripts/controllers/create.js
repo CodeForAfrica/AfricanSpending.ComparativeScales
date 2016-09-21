@@ -262,7 +262,7 @@ angular.module('comparativescalesApp')
               objDescription: d.objDescription,
               source: d.source,
               credits: d.credits,
-              itemsNumber: Math.ceil($scope.bignumber/d.objvalue),
+              itemsNumber: d.itemsNumber,
               id: d.id,
               icon: d.icon
             };
