@@ -13,7 +13,7 @@
     "angular-bootstrap": "0.14.3",
     "ng-file-upload": "~11.0.0",
     "d3": "~3.5.6",
-    "ui-select": "angular-ui-select#~0.13.2",
+    "ui-select": "angular-ui-select#~0.14.7",
     "angular-loading-bar": "~0.8.0"
   },
   "devDependencies": {
